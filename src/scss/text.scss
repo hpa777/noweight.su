@@ -1,0 +1,56 @@
+.blue {
+    color: $persian_green_color;
+}
+.bold {
+    font-weight: 700;
+}
+h1, .h1 {    
+    font-weight: 700;
+    font-size: em(60);
+    text-transform: uppercase;
+    color: $tarawera_color; 
+    &--white {
+        color: #fff;
+    }
+    &--sub {
+        font-size: em(50);
+    }
+    &--spaceman {
+        span {
+            position: relative;
+            &::after {
+                content: '';
+                display: block;
+                width: 3.2em;
+                height: 3.3em;
+                background: center/contain no-repeat url(../img/spaceman.png);
+                position: absolute;
+                right: -3.3em;
+                top: -1.3em;
+            }
+        }        
+    }   
+}
+h2, .h2 {
+    font-weight: 700;
+    font-size: em(35);
+    text-transform: uppercase;
+    padding-bottom: 0.6em;
+} 
+.text {
+    p, ul {
+        font-family: 'Montserrat';
+        font-size: 1.25rem;
+        line-height: 1.45;
+        padding-bottom: 1em;
+    }
+    ul {
+        padding-left: 1.3em;
+    }
+}
+.two-column {
+    > div {
+        flex-shrink: 0;
+        width: 50%;
+    }
+}

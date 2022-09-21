@@ -1,0 +1,121 @@
+.video-box {
+    margin-top: -1.4em;
+    margin-bottom: 8.5em;
+    &__cnt {
+        margin: 0 auto;
+        background: center/contain no-repeat url(../img/tv_set.png);
+        width: 63em;
+        height: 45.8em;
+        box-sizing: border-box;
+        padding: 8.6em 2.6em 5.5em 3.1em;
+    }
+    &__yt {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 20px;
+    }
+    .with-nlo {
+        &::before {
+            top: auto;
+            left: auto;
+            bottom: -9em;
+            right: -10.2em;
+            width: 18em;
+            height: 8em;
+        }
+    }
+}
+
+.documents-buttons {
+    margin-bottom: 5.3em;
+    &__title {
+        font-weight: 700;
+        font-size: em(50);
+        color: $persian_green_color;
+        margin-right: 0.6em;
+    }
+}
+
+.note {
+    background: #EAEDF0;
+    border-radius: 30px;
+    padding: 3em 4.3em;
+    margin-bottom: 9em;
+    &__title {
+        font-weight: 700;
+        font-size: em(50);
+        color: $tarawera_color;
+        padding-bottom: .3em;
+    }
+    &__text {
+        font-family: 'Montserrat';
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 32px;
+    }    
+}
+
+.faq {
+    font-family: 'Montserrat';    
+    display: block;
+    list-style: none;
+    border: 1px solid $persian_green_color;
+    border-radius: 20px;    
+    &__item {
+        display: block;                
+        padding-left: 3.1em;
+        cursor: pointer;
+        &:not(:last-of-type) {
+            border-bottom: 1px solid $persian_green_color;
+        }        
+        &:hover, &.active {                          
+            .faq__title {
+                &::after {
+                    content: '-';
+                    right: 0.7em;                    
+                }
+            }
+        }
+    }
+    &__title {
+        position: relative;
+        color: $persian_green_color;
+        font-weight: 700;
+        font-size: em(20);
+        line-height: 1.2;
+        padding: 1.4em 3em 1.1em 0;
+        text-transform: uppercase;
+        &::after {
+            content: '+';
+            color: $persian_green_color;
+            position: absolute;
+            right: 0.55em;
+            top: calc(50% - 0.19em);
+            line-height: 0.5;
+            font-weight: 500;
+            font-size: 2.7em;
+        }
+    }
+    &__text {
+        font-weight: 400;
+        font-size: em(18);
+        line-height: 1.44;
+        padding: 1.4em 0;
+        p {
+            padding-bottom: 1.5em;
+        }
+        ul {
+            padding-left: 1.3em;
+            padding-bottom: 1.5em;
+        }
+    }
+    &__body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+    }
+    .active .faq__body {
+        max-height: 500px;
+    }
+}

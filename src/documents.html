@@ -1,0 +1,24 @@
+<extends src="layout.html" locals='{"wrapperclass": "wrapper--ship"}'>       
+    <block name="content">
+        <include src="breadcrumbs.html">
+            {"page":"Документы"}
+        </include>
+        
+        <div class="bg bg--both footer-pad">
+            <div class="container-fl">
+                <h1>Документы</h1>
+                <include src="documents.html">
+                    {"class":"with-nlo with-nlo--shuttle"}
+                </include>
+                <div class="text">
+                    <p>Тарифы действуют для посетителей старше 3-х лет. </p>
+                    <p>Детям до 3 лет посещение Бесплатное, но могут находится в Батутной Арене или Детской зоне только в сопровождении совершеннолетнего.</p>
+                    <p>Дети до 6 лет могут находится в Батутной зоне только в сопровождении совершеннолетнего.</p>
+                    <p>Сопровождающий оплачивает вход в батутную зону и лабиринт согласно действующим тарифам.</p>
+                    <p class="blue bold">К выходным дням также относятся праздничные дни и каникулы!</p>
+                </div>                
+            </div>
+        </div>
+
+    </block>
+</extends>

@@ -1,0 +1,44 @@
+<extends src="layout.html" locals='{"wrapperclass": "wrapper--min"}'>       
+    <block name="content">
+        <include src="breadcrumbs.html">
+            {"page":"Цены"}
+        </include>
+        <div class="container-fl">
+            <h1>Цены</h1>
+        </div>
+        <div class="price__bg">
+            <div class="container-fl">
+                <include src="price.html"></include>
+            </div>
+        </div>            
+        
+        <div class="bg bg--both">
+            <div class="container-fl section section--pt">
+                <div class="text">
+                    <div class="h1">документы</div>
+                    <p>Для посещения батутного центра</p>
+                    <include src="documents.html">
+                        {"class":""}
+                    </include>
+                    <p>Тарифы действуют для посетителей старше 3-х лет. </p>
+                    <p>Детям до 3 лет посещение Бесплатное, но могут находится в
+                        Батутной Арене или Детской зоне только в сопровождении
+                        совершеннолетнего.</p>
+                    <p>Дети до 6 лет могут находится в Батутной зоне только в
+                        сопровождении совершеннолетнего.</p>
+                    <p>Сопровождающий оплачивает вход в батутную зону и лабиринт
+                        согласно действующим тарифам.</p>
+                    <p class="blue bold">К выходным дням также относятся праздничные
+                        дни и каникулы!</p>                    
+                </div>
+                <div class="note with-nlo with-nlo--big with-nlo--bottom">
+                    <div class="note__title">ПРИМЕЧАНИЕ</div>
+                    <div class="note__text">
+                        <p>При оплате тарифа, выдаётся одноразовый браслет, с указанием времени входа в Батутную Арену. Посетители допускаются к занятиям в Батутной зоне, только после организованной разминки с тренером. Без разминки, допускаются посетители в Детскую зону – Лабиринт.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </block>
+</extends>

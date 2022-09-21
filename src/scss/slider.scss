@@ -1,0 +1,295 @@
+.slider-arrow {
+    position: absolute;
+    top: 44.5%;
+    font-size: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 900;
+    &::before {
+        content: '';
+        font-size: 1rem;
+        display: block;
+        width: 1.6em;
+        height: 2.9em;
+        color: $tarawera_color;
+        background: center/contain no-repeat url('../img/slider-arrow.svg');
+    }
+    &.slick-disabled {
+        display: none!important;
+    }  
+}
+.slick-dots {
+    position: absolute;
+    left: 0;
+    bottom: -1em;
+    width: 100%;
+    height: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    li {
+        padding: 0 .36em;
+        &.slick-active button {
+            background: $anzac_color;
+        }
+    }
+    button {
+        width: 14px;
+        height: 14px;
+        font-size: 0;
+        background: #fff;
+        border: none;
+        background-color: $tarawera_color;
+        border-radius: 100px;
+        cursor: pointer;
+        &:hover {
+            background: $anzac_color;
+        }
+    }
+}
+.slider, .coop-slider, .team-slider {
+    .slick-slide {
+        margin: 0 10px;
+    }
+    .slick-list {
+        margin: 0 -10px;
+    }
+    .slick-arrow {
+        @extend .slider-arrow;
+        filter: invert(10%) sepia(20%) saturate(7364%) hue-rotate(190deg) brightness(92%) contrast(95%);
+    }
+    .slick-prev {
+        left: -72px;
+    }
+    .slick-next {
+        right: -72px;
+        transform: rotate(180deg);
+    }
+}
+.slider {
+    &__item {
+        position: relative;
+        width: 20.4em;
+        height: 34.2em;
+        overflow: hidden;
+        border-radius: 30px;
+        cursor: pointer;
+        &__cnt {            
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: #fff;            
+            z-index: 1;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 2em 0 2.5em;
+        }
+        &__title {
+            font-weight: 700;
+            font-size: em(40);
+            line-height: 1;
+            padding-bottom: 1.7em;
+        }
+        &__txt {
+            font-family: 'Montserrat';
+            font-weight: 400;
+            font-size: em(20);
+            line-height: 1.4;
+            max-height: 0;            
+            overflow: hidden;
+            transition: all .3s ease;
+            > div {
+                padding-bottom: 7.7em;
+            }
+        }
+        &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            transition: height .3s ease;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(0, 57, 79, 0.8) 16.67%, rgba(0, 0, 0, 0) 79.69%);
+        }
+        &:hover {
+            &::after {
+                height: 350%;
+            }
+            .slider__item__txt {                
+                max-height: 500px;
+            }
+        }
+    }    
+}
+
+.with-rect {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #BABABA;
+    border-radius: 0 20px 20px 20px;
+    &::before {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 31px solid #BABABA; 
+        border-left: 55px solid transparent;
+        position: absolute;
+        top: -1px;
+        left: -56px;
+    }
+    &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 30px solid #fff; 
+        border-left: 54px solid transparent;
+        position: absolute;
+        top: 0;
+        left: -53px;
+    }
+}
+.news-slide {    
+    padding: 1em;
+    width: 30.5em;
+    margin: 0 auto;
+}
+.video-slide {
+    padding: 1em;
+    width: 15.5em;
+    margin: 0 auto;
+}
+.video-slider,
+.news-slider {
+    iframe {
+        display: block;
+        margin: 0 auto;
+    }
+    .slick-arrow {
+        @extend .slider-arrow;
+        filter: invert(100%) sepia(1%) saturate(2253%) hue-rotate(176deg) brightness(80%) contrast(92%);       
+    }
+    .slick-prev {
+        left: -7px;
+    }
+    .slick-next {
+        right: -7px;
+        transform: rotate(180deg);
+    }
+}
+.index-banner {
+    width: 100%;
+    height: 46em;
+    display: block;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &__text {
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+        height: 100%;
+    }
+    &__title {
+        font-weight: 700;
+        font-size: em(80);
+        line-height: 1;
+        text-transform: uppercase;
+        padding-bottom: .3em;
+    }
+    &__descr {
+        font-weight: 700;
+        font-size: em(40);
+        line-height: 1;
+        padding-bottom: 1em;
+    }
+    .button {
+        align-self: baseline;
+        font-size: em(40);
+        padding: .5em .9em;
+    }
+    &__slider {
+        transition: opacity 1000s ease-in-out;
+        opacity: 1;
+        .slick-arrow {
+            @extend .slider-arrow;
+            filter: invert(100%) sepia(1%) saturate(2253%) hue-rotate(176deg) brightness(80%) contrast(92%);       
+        }
+        .slick-prev {
+            left: 20px;
+        }
+        .slick-next {
+            right: 20px;
+            transform: rotate(180deg);
+        }
+    }    
+}
+
+.coop-slide {    
+    height: 32em;    
+    border: 6px solid $tarawera_color;
+    overflow: hidden;
+    border-radius: 40px;
+}
+.coop-slider {
+    .slick-slide {
+        margin: 0 5em;
+    }
+    .slick-list {
+        margin: 0 -5em;
+    }
+}
+
+.team-item {    
+    width: 18.5em;
+    margin: 0 auto;    
+    &__image {
+        position: relative;
+        height: 18.5em;
+        &--star {
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: center/contain no-repeat url(../img/star_bg.png);
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        &--circle {
+            > div {
+                overflow: hidden;
+                border-radius: 100%;
+            }
+            
+        }
+    }
+    &__title {
+        font-weight: 700;
+        font-size: em(30);
+        text-align: center;
+        padding-top: 1.1em;
+        height: 3em;
+        color: $tarawera_color;
+    }
+    &__description {
+        background-color: $wild_sand_color;
+        font-family: 'Montserrat';        
+        font-weight: 300;
+        font-size: em(14);
+        line-height: 1.21;
+        padding: 2.2em;
+        border-radius: 20px;
+        li, p {
+            &:not(:last-child) {
+                padding-bottom: .6em;
+            }
+        }
+    }
+}

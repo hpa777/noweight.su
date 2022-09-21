@@ -1,0 +1,72 @@
+<extends src="layout.html" locals='{"wrapperclass": "wrapper--min"}'>       
+    <block name="content">
+        <include src="breadcrumbs.html">
+            {"page":"Вакансии"}
+        </include>
+        <div class="container-fl">
+            <h1>Вакансии</h1>
+        </div>
+        
+        <div class="tabs child-tabs bg bg--topbottom">
+            <ul class="tabs-menu row-fl">
+                <li class="tabs-menu__item active" data-tab="tab_1">тренер</li>
+                <li class="tabs-menu__item" data-tab="tab_2">тренер1</li>
+                <li class="tabs-menu__item" data-tab="tab_3">тренер2</li>
+                <li class="tabs-menu__item" data-tab="tab_4">тренер3</li>
+            </ul>
+            <div id="tab_1" class="tabs__item active">
+                <div class="container-fl">
+                    <div class="text with-nlo with-nlo--spaceman-w-baloon-float">
+                        <p class="bold" style="padding-bottom: 0;">Обязанности:</p>                
+                        <ul>
+                            <li>Проведение разминки, ОФП, акробатики и гимнастики.</li>
+                            <li>Разъяснение правил техники безопасности.</li>
+                            <li>Контроль посетителей.</li>
+                            <li>Обучение прыжкам на батуте.</li>
+                            <li>Проведение Дней Рождений и групповых тренировок</li>
+                        </ul>
+                        
+                        <p class="bold" style="padding-bottom: 0;">Требования:</p>
+                        <ul>
+                            <li>Высшее образование, незаконченное высшее (приветствуются работники цирка)</li>
+                            <li>Активность</li>
+                            <li>Ответственность</li>
+                            <li>Целеустремленность</li>
+                            <li>Опыт работы тренером</li>
+                            <li>Опыт работы с детскими группами</li>
+                            <li>Желание работать и зарабатывать</li>
+                            <li>Доброжелательность, ответственность, пунктуальность</li>
+                            <li>Любовь к детям</li>
+                            <li>Стрессоустойчивость</li>
+                            <li>Пунктуальность</li>
+                        </ul>
+                        
+                        <p class="bold" style="padding-bottom: 0;">Условия:</p>
+                        <ul>
+                            <li>Работа в самом большом батутном -центре</li>
+                            <li>Дружный коллектив</li>
+                            <li>График работы сменнный</li>
+                            <li>Официальное оформление</li>
+                            <li>З/П по результатам собеседования</li>
+                        </ul>                        
+                    </div>
+                    <div class="documents-buttons">                        
+                        <a href="" class="button button--doc button--hover-yellow">
+                            <svg><use xlink:href="/images/sprite.svg#pdf"></use></svg>
+                            <div>Заполнить <br>анкету</div>
+                        </a>
+                    </div>                  
+                </div>
+            </div>
+            <div id="tab_2" class="tabs__item">2</div>
+            <div id="tab_3" class="tabs__item">3</div>
+            <div id="tab_4" class="tabs__item">4</div>
+        </div>
+
+
+        <div class="container-fl footer-pad text">
+            <p style="font-size: 1.5em;">Для рассмотрения Вашей кандидатуры необходимо заполнить анкету-резюмеи <br>и прислать её с фотографией нам на почту <a href="mailto:khalin@bk.ru" class="blue">khalin@bk.ru</a> тел: <a href="" class="blue">8-950-770-28-71</a></p>   
+        </div>
+
+    </block>
+</extends>

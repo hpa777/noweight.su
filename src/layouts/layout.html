@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimal-ui">
+</head>
+<body>
+    <div class="wrapper {{wrapperclass}}">
+        <div class="main-part">
+            <header class="header">
+                <div class="header__container container-fl">
+                    <div class="header__top row-fl">
+                        <a href="" class="header__logo">
+                            <img src="img/logo.png" alt="">
+                        </a>
+                        <div class="header__col">
+                            <div class="header-city row-fl aic">
+                                <div class="header-city__title">Ваш город</div>
+                                <div class="header-city__button button has-submenu">
+                                    <span>Воронеж</span>
+                                    <svg><use xlink:href="/images/sprite.svg#drop-down"></use></svg>
+                                    <div class="submenu__container">
+                                        <ul class="submenu">
+                                            <li class="submenu__item"><a href="">Москва</a></li>
+                                            <li class="submenu__item"><a href="">Питер</a></li>                                        
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header__address">
+                                <svg class="blue"><use xlink:href="/images/sprite.svg#point"></use></svg>
+                                <span>Ленинский проспект, д 174</span>
+                            </div>
+                            <div class="header__worktime">
+                                <span class="bold">10:00 - 22:00</span>
+                                <span class="blue">(Без записи)</span>
+                            </div>
+                        </div>
+                        <div class="header__col">
+                            <div class="header__profile">
+                                <a href="" class="row-fl aic">
+                                    <svg><use xlink:href="/images/sprite.svg#profile-circle"></use></svg>
+                                    <span>Личный кабинет</span>
+                                </a>
+                            </div>
+                            <a href="" class="header__button button button--hover-blue">
+                                <svg><use xlink:href="/images/sprite.svg#calculator"></use></svg>
+                                <span>Расчитать Праздник</span>
+                            </a>
+                        </div>
+                        <div class="header__col">
+                            <div class="header-soci row-fl aic">                            
+                                <a class="header-soci__item" href="">
+                                    <img src="img/vk.svg" alt="">
+                                </a>
+                                <a class="header-soci__item" href="">
+                                    <img src="img/telegramm.svg" alt="">
+                                </a>
+                                <a class="header-soci__item" href="">
+                                    <img src="img/youtube.svg" alt="">
+                                </a>
+                            </div>
+                            <button class="header__button button button--hover-blue">
+                                <svg><use xlink:href="/images/sprite.svg#call-calling"></use></svg>
+                                <span>СВЯЗАТЬСЯ</span>
+                            </button> 
+                        </div>
+                        <div class="header__col">
+                            <div class="header-phone row-fl aic">
+                                <a href="" class="header-phone__ico">
+                                    <svg><use xlink:href="/images/sprite.svg#telegramm"></use></svg>
+                                </a>
+                                <a href="" class="header-phone__ico">
+                                    <svg><use xlink:href="/images/sprite.svg#watsapp"></use></svg>
+                                </a>
+                                <a href="" class="header-phone__number">+7 (952) 953-06-56</a>
+                            </div>
+                            <div class="header-phone header-phone--min row-fl aic">
+                                <span class="header-phone__title">Администратор:</span>
+                                <a href="" class="header-phone__number">+7 (473) 300-38-03</a>
+                            </div>
+                            <div class="header-phone header-phone--min row-fl aic">
+                                <span class="header-phone__title">По организации праздников:</span>
+                                <a href="" class="header-phone__number">+7 (473) 292-96-56</a>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="main-menu__container">
+                        <ul class="main-menu container-fl row-fl jcsb">
+                            <li class="main-menu__item has-submenu">
+                                <a href="">О центре</a>
+                                <div class="submenu__container">
+                                    <ul class="submenu">
+                                        <li class="submenu__item"><a href="">Наша команда</a></li>
+                                        <li class="submenu__item"><a href="">Документы</a></li>
+                                        <li class="submenu__item"><a href="">Работа</a></li>
+                                        <li class="submenu__item"><a href="">Сотрудничество</a></li>
+                                        <li class="submenu__item"><a href="">Часто задаваемые вопросы</a></li>
+                                        <li class="submenu__item"><a href="">Звёзды в Невесомости</a></li>
+                                        <li class="submenu__item"><a href="">Контакты</a></li>
+                                    </ul>                                                               
+                                </div>
+                            </li>
+                            <li class="main-menu__item">
+                                <a href="">ЦЕНЫ</a>
+                            </li>
+                            <li class="main-menu__item">
+                                <a href="">афиша и расписание</a>
+                            </li>
+                            <li class="main-menu__item">
+                                <a href="">ПРАЗДНИКИ</a>
+                            </li>
+                            <li class="main-menu__item">
+                                <a href="">ТРЕНИРОВКи</a>
+                            </li>
+                            <li class="main-menu__item">
+                                <a href="">АКЦИИ</a>
+                            </li>
+                            <li class="main-menu__item">
+                                <a href="">КАФЕ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>                
+            </header>            
+            <block name="content"></block>            
+        </div>
+        <footer class="footer">
+            <div class="footer__row container-fl row-fl">
+                <div class="footer__col">
+                    <a class="footer__logo" href="">
+                        <img src="img/logo_foot.png" alt="">
+                    </a>
+                    <a href="" class="button button--hover-blue">франшиза</a>
+                </div>
+                <div class="footer__col">
+                    <ul class="footer__menu">
+                        <li><a href="">Наша Команда</a></li>
+                        <li><a href="">Документы</a></li>
+                        <li><a href="">Работа</a></li>
+                        <li><a href="">Сотрудничество</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <ul class="footer__menu">
+                        <li><a href="">Часто задаваемые вопросы</a></li>
+                        <li><a href="">Звезды в Невесомости</a></li>
+                        <li><a href="">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <div class="footer__phone">
+                        <a href="">+7 (952) 953 06 56</a>
+                    </div>
+                    <div class="footer__mail">
+                        <a href="">batutvrn@bk.ru</a>
+                    </div>
+                    <div class="footer__address">г. Воронеж, <br>Ленинский проспект, д 174
+                        <span>(слева от здания ТРЦ «МаксиМир» если стоять лицом к входу)</span>
+                    </div>
+                </div>
+            </div>                
+        </footer>
+    </div>
+</body>
+</html>
