@@ -250,7 +250,7 @@
     &__image {
         position: relative;
         height: 18.5em;
-        &--star {
+        &--star {           
             &::after {
                 content: '';
                 display: block;
