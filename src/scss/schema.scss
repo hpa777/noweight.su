@@ -258,6 +258,18 @@
             width: 2.1%;
             height: 1.9em;
         }
+        &--23 {
+            left: 88%;
+            top: 35.9em;
+            > span {
+                color: #292D32;
+                padding: 0;
+                &:hover {
+                    color: #47AC26;
+                }
+            }            
+            transform: rotate(-90deg);
+        }
     }
     &-preview {
         display: none;

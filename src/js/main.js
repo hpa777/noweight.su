@@ -51,8 +51,15 @@ $(function () {
         menu.find('.tabs-menu__item').removeClass('active');
         menu.siblings().removeClass('active');
         let tid = '#' + $(this).addClass('active').data('tab');
-        $(tid).addClass('active');
-        setTabsHeigh();
+        let el = $(tid).addClass('active');
+        if (el.length) {
+            setTabsHeigh();
+            if (el.hasClass('needscroll')) {
+                if ($(window).scrollTop() + $(window).height() < el.offset().top + el.height()) {
+                    $('html,body').animate({scrollTop : el.offset().top + el.height() + 80 - $(window).height()}, 1000);
+                } 
+            }            
+        }              
     });
     setTabsHeigh();
     function setTabsHeigh(){
@@ -69,6 +76,7 @@ $(function () {
         let tabHeigh = $('.parent-tabs>.tabs__item.active').height();
         $('.parent-tabs').css('min-height', menuHeigh + tabHeigh + 140);        
     }
+
 
     // Faq Accordion
     let faq = $('.faq__item');
