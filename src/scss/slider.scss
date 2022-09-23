@@ -243,8 +243,20 @@
         margin: 0 -5em;
     }
 }
-
-.team-item {    
+.team-slider {
+    &__cnt {
+        position: relative;
+        height: 40em;        
+    }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    .slick-arrow {
+        top: 17rem;
+    }
+}
+.team-item {      
     width: 18.5em;
     margin: 0 auto;    
     &__image {
@@ -279,9 +291,39 @@
         color: $tarawera_color;
     }
     &__description {
+        position: relative;
         background-color: $wild_sand_color;        
         padding: 2.2em;
-        border-radius: 20px;        
+        border-radius: 20px;
+        &.active {
+            .team-item__text { 
+                max-height: 1000px;
+                &::after {
+                    display: none;
+                }
+            }
+            .team-item__expand {
+                transform: rotate(180deg);
+            }
+        }                
+    }
+    &__expand {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        color: $tarawera_color;
+        cursor: pointer;
+        &:hover {
+            color: $persian_green_color;
+        }
+        &-row {            
+            position: absolute;
+            bottom: .5em;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+        
     }
     &__text {
         position: relative;
@@ -289,7 +331,8 @@
         font-weight: 300;
         font-size: em(14);
         line-height: 1.21;
-        max-height: 5em;
+        max-height: 9.8em;
+        transition: max-height .3s ease;
         overflow: hidden;
         li, p {
             &:not(:last-child) {
@@ -299,14 +342,16 @@
         ul {
             padding-left: 1.1em;
         }
-        &::after {
-            content: "";            
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            height: 1.2em;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), $wild_sand_color 100%);            
-        }
+        &--expand {
+            &::after {
+                content: "";            
+                position: absolute;
+                bottom: -1px;
+                right: 0;
+                left: 0;
+                height: 3em;
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0), $wild_sand_color 100%);            
+            }  
+        }              
     }
 }

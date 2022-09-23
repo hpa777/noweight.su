@@ -88,4 +88,12 @@ $(function () {
         $(this).toggleClass('active');
     });
 
+
+    $('.team-item__expand').on('click', function(){
+        let parent = $(this).parents('.team-item__description').toggleClass('active');        
+    });
+    $('.team-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+        $(this).find('.team-item__description').removeClass('active');
+      });
+
 });
