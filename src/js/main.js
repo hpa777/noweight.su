@@ -1,10 +1,12 @@
 require('slick-carousel');
 
+
 $(function () {    
-    let mainMenuOffset = $('.header').offset(); 
-    $(window).on('scroll', function(){
+
+    let mainMenuOffset = $('.header').offset();
+    $(window).on('scroll', function () {
         let st = $(this).scrollTop();
-        $('.main-part').toggleClass('header--fixed', st > mainMenuOffset.top);        
+        $('.main-part').toggleClass('header--fixed', st > mainMenuOffset.top);
     });
     $('.index-banner__slider').slick({
         arrows: true,
@@ -18,7 +20,7 @@ $(function () {
         autoplay: true,
         autoplaySpeed: 3000
     });
-    $('.slider, .team-slider').slick({        
+    $('.slider, .team-slider').slick({
         slidesToShow: 4,
         slidesToScroll: 1,
         arrows: true,
@@ -26,7 +28,9 @@ $(function () {
         //autoplay: true,
         autoplaySpeed: 3000
     });
-    $('.news-slider, .coop-slider').slick({        
+   
+
+    $('.news-slider, .coop-slider').slick({
         slidesToShow: 2,
         slidesToScroll: 1,
         arrows: true,
@@ -42,9 +46,9 @@ $(function () {
         //autoplay: true,
         autoplaySpeed: 3000
     });
-    
 
-    
+
+
     // Tabs
     $('.tabs-menu__item').on('click', function () {
         let menu = $(this).parent();
@@ -56,15 +60,15 @@ $(function () {
             setTabsHeigh();
             if (el.hasClass('needscroll')) {
                 if ($(window).scrollTop() + $(window).height() < el.offset().top + el.height()) {
-                    $('html,body').animate({scrollTop : el.offset().top + el.height() + 80 - $(window).height()}, 1000);
-                } 
-            }            
-        }              
+                    $('html,body').animate({ scrollTop: el.offset().top + el.height() + 80 - $(window).height() }, 1000);
+                }
+            }
+        }
     });
     setTabsHeigh();
-    function setTabsHeigh(){
+    function setTabsHeigh() {
         let childMenuHeigh = $('.parent-tabs>.tabs__item.active .tabs-menu').height();
-        let childTabHeigh; 
+        let childTabHeigh;
         if (childMenuHeigh != undefined) {
             childTabHeigh = $('.parent-tabs>.tabs__item.active .tabs__item.active').height();
         } else {
@@ -74,7 +78,7 @@ $(function () {
         $('.child-tabs').css('min-height', childMenuHeigh + childTabHeigh);
         let menuHeigh = $('.parent-tabs>.tabs-menu').height();
         let tabHeigh = $('.parent-tabs>.tabs__item.active').height();
-        $('.parent-tabs').css('min-height', menuHeigh + tabHeigh + 140);        
+        $('.parent-tabs').css('min-height', menuHeigh + tabHeigh + 140);
     }
 
 
@@ -89,11 +93,20 @@ $(function () {
     });
 
 
-    $('.team-item__expand').on('click', function(){
-        let parent = $(this).parents('.team-item__description').toggleClass('active');        
+    $('.team-item__expand').on('click', function () {
+        let p = $(this).parents('.team-item__description, .news-slide--expand').toggleClass('active');
+        if (p.hasClass('active')) {
+            p.addClass('no-shadow');
+        }
     });
-    $('.team-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-        $(this).find('.team-item__description').removeClass('active');
-      });
+    $('.team-slider, .news-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+        $(this).find('.team-item__description, .news-slide--expand').removeClass('active');
+    });
+    $('.news-slide__cnt').on('transitionend', function(){
+        if(!$(this).hasClass('active')) {
+            $(this).removeClass('no-shadow');
+            console.log('stop');
+        }                     
+    }); 
 
 });
