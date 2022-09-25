@@ -36,6 +36,10 @@ h2, .h2 {
     font-size: em(35);
     text-transform: uppercase;
     padding-bottom: 0.6em;
+    &--big {
+        font-size: em(50);
+        padding-bottom: 1.3em;
+    }
 } 
 .text {
     p, ul {

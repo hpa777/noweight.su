@@ -1,0 +1,202 @@
+.contacts {
+    flex-wrap: wrap;
+    margin-bottom: 1.5em;    
+}
+.contact {
+    width: 39.4%;
+    box-sizing: border-box;
+    padding: 4.3em 0 3.3em 5.2%;
+    margin-bottom: 4.5em;
+    border-radius: 50px;
+    color: #fff;
+    background-repeat: no-repeat;
+    &__title {
+        font-weight: 700;
+        font-size: em(40);
+        line-height: 1;
+        margin-bottom: 1.4em;        
+    }
+    &__body {
+        font-family: 'Montserrat';
+        font-size: em(24);
+    }
+    &__phone {
+        font-weight: 600;
+        margin-bottom: .7em;
+        span {
+            font-size: .6em;
+        }
+    }
+    &__text {
+        font-weight: 400;        
+        line-height: 1.2;
+    }
+    &__ico {
+        display: inline-flex;
+        width: 1.2em;
+        height: 1.2em;
+        box-sizing: border-box;
+        padding: .25em;
+        border-radius: 100%;
+        color: #fff;
+        margin-left: 0.4em;
+        svg {
+            margin: auto;
+        }
+        &--wa {
+            background-color: #48C95F;
+        }
+        &--tg {
+            background-color: #2F89CE;
+        }
+        &:hover {
+            opacity: .7;
+        }
+    }
+    a {
+        color: #fff;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .vk-ico {
+        width: 1.5em;
+        height: 1.5em;
+        margin-right: 0.7em;
+        color: $tarawera_color;
+    }
+    &:nth-child(2n-1) {
+        margin-left: 7.4%;
+        margin-right: 5.4%;
+    }
+    &--1 {
+        background-color: $anzac_color;
+        background-image: url(../img/contact_bg1.png);        
+        background-position: right bottom;
+        .contact__text,
+        .contact__title,
+        .contact__phone {
+            color: $tarawera_color;
+        }
+        .contact__phone {
+            margin-bottom: 1em;
+        }
+        .contact__mg {
+            margin-top: 2.4em;
+        }
+    }
+    &--2 {
+        background-color: $tarawera_color;
+        background-image: url(../img/contact_bg2.png);        
+        background-position: right 3.2em;
+        .vk-ico {
+            color: #7294C7;
+        }
+        .contact__mg {
+            margin: 1.1em 0 0.9em 0;
+        }       
+    }
+    &--3 {
+        background-color: #A6A8AB;
+        background-image: url(../img/contact_bg3.png);        
+        background-position: 95.3% 1.8em;        
+        .contact__phone {
+            margin: 1.1em 0 0.9em 0;
+        }                      
+        .contact__mg {
+            margin: 1.9em 0 1.1em 0;
+        }       
+    }
+    &--4 {
+        background-color: $persian_green_color;
+        background-image: url(../img/contact_bg4.png);        
+        background-position: 91.5% 80%;
+        .contact__title {
+            margin-bottom: 1em;
+        }        
+        .contact__phone {
+            margin: 1.1em 0 0.9em 0;
+        }                     
+        .contact__mg {
+            margin-top: 1.3em;
+        }       
+    }
+}
+.address {
+    justify-content: center;
+    font-family: 'Montserrat';
+    font-size: em(24);
+    margin-bottom: 2.2em;
+    &__ico {
+        width: 1.8em;
+        height: 2.7em;
+        flex-shrink: 0;
+    }
+    &__text {
+        padding: .3em 0 0 1.3em;
+        p {
+            line-height: 1.2;
+            margin-bottom: 1.5em;
+        }
+        .bold {
+            font-weight: 600;
+        }
+        a {
+            color: #000;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+.cs-list {    
+    padding: 0 11%;
+    margin-bottom: 5.7em;
+}
+.cs-item {
+    flex-direction: column;
+    &__title {
+        font-family: 'Montserrat';        
+        font-weight: 600;
+        font-size: em(20);        
+        margin: .6em 0 1.1em 0;
+    }
+    .button {
+        font-size: 1.6em;        
+        align-self: center;
+        width: 7em;
+        padding: 0.5em 0;
+        margin-bottom: .5em;
+        &:hover {
+            opacity: .7;
+        }
+    }
+    &--1 {
+        .button {
+            background-color: #3B6EB4;
+        }
+    }
+    &--2 {
+        .button {
+            background-color: #C73531;
+        }
+    }
+    &--3 {
+        .button {
+            background-color: #2F89CE;
+        }
+    }
+    &--4 {
+        .button {
+            background-color: #C73556;
+        }
+    }
+}
+.account-details {
+    padding: 0 10%;
+    &__item {
+        font-family: 'Montserrat';
+        font-weight: 400;
+        font-size: em(20);
+    }
+}
