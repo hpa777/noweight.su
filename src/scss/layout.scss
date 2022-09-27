@@ -203,10 +203,7 @@
         }
         &__item {
             width: 1.8em;
-            height: 1.8em;          
-            &:not(:last-of-type) {
-                margin-right: 1.7em;
-            }
+            height: 1.8em;
             &:hover {
                 opacity: .7;
             }            

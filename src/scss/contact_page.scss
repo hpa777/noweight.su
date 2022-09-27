@@ -54,7 +54,7 @@
         }
     }
     a {
-        color: #fff;
+        color: inherit;
         &:hover {
             text-decoration: none;
         }
@@ -69,57 +69,17 @@
         margin-left: 7.4%;
         margin-right: 5.4%;
     }
-    &--1 {
-        background-color: $anzac_color;
-        background-image: url(../img/contact_bg1.png);        
-        background-position: right bottom;
-        .contact__text,
-        .contact__title,
-        .contact__phone {
-            color: $tarawera_color;
-        }
-        .contact__phone {
-            margin-bottom: 1em;
-        }
-        .contact__mg {
-            margin-top: 2.4em;
-        }
+    &--1 {        
+        background-position: right bottom;             
     }
-    &--2 {
-        background-color: $tarawera_color;
-        background-image: url(../img/contact_bg2.png);        
+    &--2 {                
         background-position: right 3.2em;
-        .vk-ico {
-            color: #7294C7;
-        }
-        .contact__mg {
-            margin: 1.1em 0 0.9em 0;
-        }       
     }
-    &--3 {
-        background-color: #A6A8AB;
-        background-image: url(../img/contact_bg3.png);        
-        background-position: 95.3% 1.8em;        
-        .contact__phone {
-            margin: 1.1em 0 0.9em 0;
-        }                      
-        .contact__mg {
-            margin: 1.9em 0 1.1em 0;
-        }       
+    &--3 {               
+        background-position: 95.3% 1.8em;
     }
-    &--4 {
-        background-color: $persian_green_color;
-        background-image: url(../img/contact_bg4.png);        
-        background-position: 91.5% 80%;
-        .contact__title {
-            margin-bottom: 1em;
-        }        
-        .contact__phone {
-            margin: 1.1em 0 0.9em 0;
-        }                     
-        .contact__mg {
-            margin-top: 1.3em;
-        }       
+    &--4 {                
+        background-position: 91.5% 80%;              
     }
 }
 .address {
@@ -170,33 +130,26 @@
         &:hover {
             opacity: .7;
         }
-    }
-    &--1 {
-        .button {
-            background-color: #3B6EB4;
-        }
-    }
-    &--2 {
-        .button {
-            background-color: #C73531;
-        }
-    }
-    &--3 {
-        .button {
-            background-color: #2F89CE;
-        }
-    }
-    &--4 {
-        .button {
-            background-color: #C73556;
-        }
-    }
+    }    
 }
 .account-details {
-    padding: 0 10%;
-    &__item {
+    &__list {
+        padding: 0 10%;
+    }    
+    &__title {
         font-family: 'Montserrat';
         font-weight: 400;
         font-size: em(20);
+        text-align: center;
+        margin-bottom: .5em;        
+    }
+    .team-item__description {
+        padding: 0;
+    }
+    .team-item__expand-row {
+        bottom: -1.5em;
+    }
+    .team-item__text {
+        max-height: 0;
     }
 }
