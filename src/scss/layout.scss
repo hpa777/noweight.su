@@ -49,17 +49,17 @@
         border-radius: 30px;
         font-size: 1.6em;
         padding-left: 1.6em;
-        padding-right: 1.4em; 
-        svg {
-            width: 1.2em;
-            height: 1.7em;
-            margin-right: 0.9em;                    
-        }
+        padding-right: 1.4em;         
         span {
             display: block;
             font-family: 'Montserrat';
             font-size: 0.4em;
         }
+    }
+    svg {
+        width: 1.2em;
+        height: 1.7em;
+        margin-right: 0.9em;                    
     }    
     &--hover-blue {
         &:hover {
@@ -360,7 +360,7 @@
             text-decoration: none;
             color: $tarawera_color;
         }
-        &.active, > a:hover {
+        &.active > a, > a:hover {
             color: $persian_green_color;
         }        
     }

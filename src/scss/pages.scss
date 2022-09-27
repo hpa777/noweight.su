@@ -119,3 +119,17 @@
         max-height: 500px;
     }
 }
+
+.cafe {
+    padding-top: 1.6em;
+    &__image {
+        flex-shrink: 0;
+        flex-direction: column;
+        .button {
+            margin-top: 2.2em;
+        }
+    }
+    &__text {
+        padding-left: 3.8em;
+    }
+}

@@ -164,7 +164,9 @@
     margin: 0 auto;
 }
 .video-slider,
-.news-slider {
+.news-slider,
+.menu-slider
+{
     iframe {
         display: block;
         margin: 0 auto;
@@ -228,7 +230,11 @@
         }
     }    
 }
-
+.menu-slider {    
+    .slick-arrow {        
+        filter: invert(10%) sepia(20%) saturate(7364%) hue-rotate(190deg) brightness(92%) contrast(95%);
+    }
+}
 .coop-slide {    
     height: 32em;    
     border: 6px solid $tarawera_color;
@@ -401,5 +407,9 @@
         } 
     }   
 }
-@keyframes expand {
+.menu-slider__item {
+    display: flex;
+    img {
+        margin: auto;
+    }
 }

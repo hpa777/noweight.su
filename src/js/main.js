@@ -1,5 +1,3 @@
-require('slick-carousel');
-
 
 $(function () {    
 
@@ -38,7 +36,7 @@ $(function () {
         //autoplay: true,
         autoplaySpeed: 3000
     });
-    $('.video-slider').slick({
+    $('.video-slider, .menu-slider').slick({
         arrows: true,
         slidesToShow: 3,
         slidesToScroll: 1,
