@@ -313,6 +313,18 @@
             }
         }                
     }
+    &__tile {
+        color: $wild_sand_color;
+        width: 6em;
+        height: 4em;
+        position: absolute;
+        top: -3em;
+        left: 33%;
+    }
+    &__button {
+        text-align: center;
+        margin-top: 2em;
+    }
     &__expand {
         display: inline-block;
         width: 1em;

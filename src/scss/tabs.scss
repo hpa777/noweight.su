@@ -8,8 +8,8 @@
         font-family: 'Montserrat';            
         &__item {
             text-transform: uppercase;
-            cursor: pointer; 
-        }
+            cursor: pointer;            
+        }        
     }
     &__item {
         position: absolute;
@@ -23,7 +23,7 @@
             left: 0;
             opacity: 1;
             visibility: visible;
-        }
+        }        
     }
 }
 .parent-tabs {
@@ -68,6 +68,10 @@
             &:hover, &.active {
                 background-color: $anzac_color;
                 color: #fff;
+            }
+            &.tabs-menu__item--min {
+                margin-right: 0;
+                padding: 1.1em;
             }
         }
     }

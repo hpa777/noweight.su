@@ -44,8 +44,8 @@ mix.setPublicPath(buildPath)
 	.js(srcPath + '/js/app.js', 'js/app.js')
 	.extract([
 		'jquery',
-		'slick-carousel'
-		//'jquery-ui'
+		'slick-carousel',
+		'@fancyapps/fancybox'
 	])
 	.autoload({
 		jquery: ['$', 'window.jQuery', "jQuery", "window.$", "jquery", "window.jquery"]

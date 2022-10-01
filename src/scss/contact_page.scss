@@ -145,11 +145,13 @@
     }
     .team-item__description {
         padding: 0;
+        background: none;
     }
     .team-item__expand-row {
         bottom: -1.5em;
     }
     .team-item__text {
         max-height: 0;
+        padding: 0 3em;
     }
 }
