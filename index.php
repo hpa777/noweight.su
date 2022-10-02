@@ -3,7 +3,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimal-ui">
-<script defer="defer" src="/js/manifest.js"></script><script defer="defer" src="/js/vendor.js"></script><script defer="defer" src="/js/app.js"></script><link href="css/app.css" rel="stylesheet"></head>
+<script defer="defer" src="/js/manifest.js"></script>
+<script defer="defer" src="/js/vendor.js"></script>
+<script defer="defer" src="/js/app.js"></script>
+<link href="/app/css/app.css" rel="stylesheet"></head>
 <body>
     <div class="wrapper wrapper--min">
         <div class="main-part">

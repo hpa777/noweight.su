@@ -66,6 +66,7 @@ class SingleVisitParser extends AbstractParserClass {
                 $link = !empty($row[$i + 1]) && !self::isLink($row[$i + 1]) ? 
                     "<a href=\"{$row[$i + 1]}\" class=\"button button--hover-blue price__buy\">Оплатить</a>" : '';
                 $res.= "<div class=\"price__col price__col--pr\">{$row[$i]} ₽{$link}</div>";
+                $i++;
             }
         }        
         return $res . '</div>';
