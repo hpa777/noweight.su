@@ -1,6 +1,12 @@
 
-$(function () {    
-
+$(function () {
+    $.datetimepicker.setLocale('ru');
+    $('#datetime').datetimepicker({        
+        format:'d.m.Y H:i',
+        formatTime:'H:i',
+        formatDate:'d.m.Y'        
+    });    
+    Inputmask().mask(document.querySelectorAll("input[data-inputmask]"));
     let mainMenuOffset = $('.header').offset();
     $(window).on('scroll', function () {
         let st = $(this).scrollTop();
@@ -26,7 +32,7 @@ $(function () {
         //autoplay: true,
         autoplaySpeed: 3000
     });
-   
+
 
     $('.news-slider, .coop-slider').slick({
         slidesToShow: 2,
@@ -100,11 +106,11 @@ $(function () {
     $('.team-slider, .news-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         $(this).find('.team-item__description, .news-slide--expand').removeClass('active');
     });
-    $('.news-slide__cnt').on('transitionend', function(){
-        if(!$(this).hasClass('active')) {
+    $('.news-slide__cnt').on('transitionend', function () {
+        if (!$(this).hasClass('active')) {
             $(this).removeClass('no-shadow');
             console.log('stop');
-        }                     
-    }); 
+        }
+    });
 
 });

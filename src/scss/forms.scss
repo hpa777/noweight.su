@@ -1,0 +1,126 @@
+.form {
+    position: relative;
+    background-color: $persian_green_color;
+    color: #fff;
+    border-radius: 20px;
+    padding: 2.9em 6.2em;
+    box-sizing: border-box;
+    width: 56.2em;
+    margin: auto;
+    &__title {
+        font-size: em(40);
+        font-weight: 700;
+        margin-bottom: 0.8em;
+    }
+    &__row {
+        &--center {
+            text-align: center;
+        }
+    }
+    &__col {
+        width: 48.5%;
+    }
+    &__group {
+        font-family: 'Montserrat';  
+        &__mes {
+            overflow: hidden;
+            font-size: .8em;
+            box-sizing: border-box;
+            height: 2.3em;
+            padding: 0.2em 0 0.9em 2.3em;
+        }
+    }
+    &--spaceman {
+        &::after {
+            content: '';
+            display: block;
+            width: em(199);
+            height: em(156);
+            background: center/contain no-repeat url(../img/formspaceman.png);
+            position: absolute;
+            bottom: -1.1em;
+            right: -1.4em;
+        }
+    }
+}
+.input-field {
+    border: none;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 0;
+    width: 100%;      
+    font-weight: 300;
+    font-size: em(16);
+    height: 2.9em;
+    border-radius: 20px;
+    text-indent: 1.8em;
+}
+.select-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;    
+    &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 0.5em solid transparent;
+        border-right: 0.5em solid transparent;
+        border-top: 0.7em solid #fff;
+        position: absolute;
+        top: 1.2em;
+        right: 1.3em;
+        pointer-events: none;
+    }
+    &::before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 3.7em;
+        background-color: $anzac_color;
+        position: absolute;
+        top: 0;
+        right: 0;
+        pointer-events: none;        
+    }
+    .input-field {
+        cursor: pointer;
+    }
+}
+textarea.input-field {
+    padding: 1.2em 1.9em;
+    text-indent: 0;
+    height: 6.3em;
+}
+.checkbox {
+    input {
+        display: none;        
+        &:checked + label {
+            &::before {
+                content: '';                
+            }
+        }
+        
+    }
+    label {
+        flex-shrink: 0;
+        position: relative;
+        width: 1.5em;
+        height: 1.5em;
+        background-color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        &::before {            
+            display: block;
+            width: 2em;
+            height: 1.8em;
+            background: center/contain no-repeat url(../img/check.svg);
+            position: absolute;
+            left: -3px;
+            bottom: 1px;
+        }        
+    }
+    span {
+        margin-left: .9em;
+    }
+}

@@ -201,9 +201,78 @@
             </div>
         </div>
         
-        <div class="container-fl section">
-            <div class="form"></div>
+        <div class="container-fl row-fl section">
+            <div class="form form--spaceman">
+                <div class="form__title">записаться на тренировку</div>
+                <div class="form__row row-fl jcsb">
+                    <div class="form__group form__col">
+                        <div class="select-wrapper">
+                            <select class="input-field">
+                                <option>Выберите тренировку</option>
+                            </select>
+                        </div>                                               
+                    </div>
+                    <div class="form__group form__col">
+                        <input type="text" class="input-field" placeholder="Ваше имя">
+                        <div class="form__group__mes"></div>
+                    </div>
+                </div>
+                <div class="form__row row-fl jcsb">
+                    <div class="form__group form__col">
+                        <div class="select-wrapper">
+                            <input id="datetime" type="text" class="input-field" placeholder="Выберите дату и время">
+                        </div>                                                
+                        <div class="form__group__mes"></div>                        
+                    </div>
+                    <div class="form__group form__col">
+                        <input type="text" class="input-field phone-mask" placeholder="Ваш телефон" data-inputmask="'mask':'+7(999)999-99-99'">
+                        <div class="form__group__mes"></div>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__group form__col">
+                        <div class="select-wrapper">
+                            <select class="input-field">
+                                <option disabled selected>Выбери тренера</option>
+                                <option>Тренер 1</option>
+                            </select>                            
+                        </div>
+                        <div class="form__group__mes"></div>                        
+                    </div>
+                </div>
+                <div class="form__row mb--11">
+                    <div class="form__group">
+                        <textarea class="input-field" placeholder="Комментарий"></textarea>                        
+                    </div>                    
+                </div>
+                <div class="form__row mb--11">
+                    <div class="form__group">
+                        <div class="checkbox row-fl aic">
+                            <input id="cb1" type="checkbox" checked>
+                            <label for="cb1"></label>
+                            <span>Согласие на обработку персональных данных</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form__row form__row--center">
+                    <button class="button button--hover-opacity">записаться</button>
+                </div>
+            </div>
         </div>
+
+        <div class="bg--gray bg--withrocks footer-pad">            
+            <div class="container-fl pt--3">
+                <div class="h1 h1--sub">видео с тренировок</div>
+                <div class="video-box">
+                    <div class="video-box__cnt">
+                        <div class="video-box__yt">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/wNOUlTNHPMM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                        </div>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          
 
     </block>
 </extends>

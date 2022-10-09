@@ -484,6 +484,12 @@
             right: 0;
         }
     }
+    &--withrocks {
+        background-image: url(../img/paralax_bg1.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
     > .container-fl,
     > .tabs-menu {
         position: relative;

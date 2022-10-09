@@ -18,7 +18,7 @@
     "browser-sync-webpack-plugin": "^2.3.0",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.2.4",
-    "filename-regex": "^2.0.1",    
+    "filename-regex": "^2.0.1",
     "laravel-mix": "^6.0.43",
     "laravel-mix-clean": "^0.1.0",
     "laravel-mix-svg-sprite": "^2.0.0",
@@ -29,7 +29,9 @@
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
+    "inputmask": "^5.0.7",
     "jquery": "^3.6.0",
+    "jquery-datetimepicker": "^2.5.21",
     "slick-carousel": "^1.8.1"
   }
 }
