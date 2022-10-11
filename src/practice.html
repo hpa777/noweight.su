@@ -203,6 +203,10 @@
         
         <div class="container-fl row-fl section">
             <div class="form form--spaceman">
+                <div class="form__title">Спасибо, сообщение отправлено!</div>
+                <div class="form__message">Hаш менеджер скоро Вам ответит!</div>
+            </div>
+            <div class="form form--spaceman" style="display: none;">
                 <div class="form__title">записаться на тренировку</div>
                 <div class="form__row row-fl jcsb">
                     <div class="form__group form__col">
@@ -248,14 +252,14 @@
                 <div class="form__row mb--11">
                     <div class="form__group">
                         <div class="checkbox row-fl aic">
-                            <input id="cb1" type="checkbox" checked>
+                            <input id="cb1" type="checkbox" data-btnid="sendbtn">
                             <label for="cb1"></label>
                             <span>Согласие на обработку персональных данных</span>
                         </div>
                     </div>
                 </div>
                 <div class="form__row form__row--center">
-                    <button class="button button--hover-opacity">записаться</button>
+                    <button id="sendbtn" class="button button--hover-opacity">записаться</button>
                 </div>
             </div>
         </div>

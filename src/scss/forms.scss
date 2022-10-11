@@ -30,6 +30,10 @@
             padding: 0.2em 0 0.9em 2.3em;
         }
     }
+    &__message {
+        font-family: 'Montserrat';
+        font-size: 1.2em;  
+    }
     &--spaceman {
         &::after {
             content: '';

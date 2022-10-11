@@ -258,6 +258,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 1;
     .slick-arrow {
         top: 17rem;
     }
@@ -310,6 +311,11 @@
             }
             .team-item__expand {
                 transform: rotate(180deg);
+            }
+            + .team-item__button {
+                .button {
+                    background-color: $anzac_color;
+                }
             }
         }                
     }
