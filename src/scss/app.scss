@@ -1,12 +1,16 @@
+@import 'slick-carousel/slick/slick';
+@import '@fancyapps/fancybox/dist/jquery.fancybox.css';
+@import 'jquery-datetimepicker/jquery.datetimepicker.css';
+@import 'animate.css';
+
+
 @import "variables";
 @import "normalize";
 @import "utils";
 @import "fonts/fonts";
 @import "text";
+@import "backgrounds";
 @import "layout";
-@import 'slick-carousel/slick/slick';
-@import '@fancyapps/fancybox/dist/jquery.fancybox.css';
-@import 'jquery-datetimepicker/jquery.datetimepicker.css';
 @import "slider";
 @import "tabs";
 @import "schema";

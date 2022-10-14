@@ -33,7 +33,7 @@
     &__message {
         font-family: 'Montserrat';
         font-size: 1.2em;  
-    }
+    }    
     &--spaceman {
         &::after {
             content: '';
@@ -44,6 +44,28 @@
             position: absolute;
             bottom: -1.1em;
             right: -1.4em;
+        }
+    }
+    &--ballons {
+        &::before {
+            content: '';
+            display: block;
+            width: em(135);
+            height: em(272);
+            background: center/contain no-repeat url(../img/ballon1.png);
+            position: absolute;
+            bottom: 16.1%;
+            left: -4.1em;
+        }
+        &::after {
+            content: '';
+            display: block;
+            width: em(112);
+            height: em(350);
+            background: center/contain no-repeat url(../img/ballon2.png);
+            position: absolute;
+            top: -11.1%;
+            right: -2.3em
         }
     }
 }

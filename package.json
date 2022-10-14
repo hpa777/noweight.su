@@ -29,9 +29,11 @@
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
+    "animate.css": "^4.1.1",
     "inputmask": "^5.0.7",
     "jquery": "^3.6.0",
     "jquery-datetimepicker": "^2.5.21",
+    "jquery-scrolla": "^0.0.3",
     "slick-carousel": "^1.8.1"
   }
 }

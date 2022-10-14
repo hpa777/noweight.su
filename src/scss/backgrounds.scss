@@ -1,0 +1,218 @@
+.wrapper {
+    background-position: bottom center;
+    background-size: contain;
+    background-repeat: no-repeat;    
+    &--index {
+        background-image: url(../img/bg_footer.png);
+    }
+    &--min {
+        background-image: url(../img/bg_footer_min.png);
+    }
+    &--ship {
+        background-image: url(../img/bg_footer_ship.png);        
+    }
+    &--faq {
+        background-image: url(../img/bg_footer_faq.png);
+    }
+    &--alone {
+        background-image: url(../img/bg_footer_alone.png);
+    }
+    &--footgray {
+        background-color: $wild_sand_color;
+        .main-part {
+            background-color: #fff;
+        }
+    }
+}
+.bg {    
+    position: relative;
+    &::before, &::after {
+        content: '';
+        display: block;        
+        width: 28em;
+        height: 30em;
+        position: absolute;        
+    }
+    &--gray {
+        background-color: $wild_sand_color;
+    }
+    &--left {
+        &::before {
+            background: left bottom/contain no-repeat url(../img/bg_left.png);            
+            bottom: 0;
+            left: 0;
+        }
+    }
+    &--right {
+        &::after {
+            background: right center/contain no-repeat url(../img/bg_right.png);            
+            bottom: 15%;
+            right: 0;
+        }
+    }
+    &--right-top {
+        &::after {
+            background: right center/contain no-repeat url(../img/bg_right.png);            
+            top: -18em;
+            right: 0;
+        }
+    }
+    &--both {        
+        &::before {
+            background: -170px bottom/contain no-repeat url(../img/bg_left.png);            
+            top: 19%;
+            left: 0;
+        }
+        &::after {
+            background: right center/contain no-repeat url(../img/bg_right.png);            
+            top: 6%;
+            right: 0;
+        }
+    }
+    &--topbottom {        
+        &::before {
+            background: -170px bottom/contain no-repeat url(../img/bg_left.png);            
+            top: 0;
+            left: 0;
+        }
+        &::after {
+            background: right center/contain no-repeat url(../img/bg_right.png);            
+            bottom: -18em;
+            right: 0;
+        }
+    }
+    &--withrocks {
+        background-image: url(../img/paralax_bg1.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    &--withrock {
+        &::after {
+            width: em(717);
+            height: em(762);
+            background: center/contain no-repeat url(../img/paralax_bg2.png);
+            bottom: -5.9em;
+            right: 9.5em;
+        }        
+    }
+    > .container-fl,
+    > .tabs-menu {
+        position: relative;
+        z-index: 1;
+    }
+}
+.bg-blue {
+    background: center/cover no-repeat url(../img/bg_blue.jpg);
+}
+.bg-yellow {
+    background: center/cover no-repeat url(../img/bg_yellow.jpg);
+}
+.bg-rock {
+    background-image: url(../img/bg_rock.png);
+    background-repeat: no-repeat;
+    &--left {
+        background-position: -10% 126%;
+    }
+    &--right {
+        background-position: 100% 79%;
+    }
+}
+.nlo {
+    background: center/contain no-repeat url(../img/nlo.png);
+    width: 12em;
+    height: 6em;
+    position: absolute;
+    top: -5.4em;
+    left: 68%;
+    &--big {
+        width: 18em;
+        height: 8em;
+    }
+    &--bottom {
+        top: auto;
+        bottom: -12.9em;
+        left: 80%;
+    }
+    &--right {        
+        top: -10.1em;
+        left: auto;
+        right: 6.8%;         
+    }
+}
+.with-nlo {
+    position: relative;
+    &::before {
+        content: '';
+        display: block;
+        @extend .nlo;
+    }    
+    &--big {
+        &::before{
+            @extend .nlo--big;
+        }        
+    }
+    &--bottom {
+        &::before {
+            @extend .nlo--bottom;
+        }        
+    }
+    &--right {
+        &::before {
+            @extend .nlo--right;
+        } 
+    }
+    &--shuttle {
+        &::before {
+            background-image: url(../img/spaceship.png);
+            width: 21em;
+            height: 10.3em;
+            top: -11em;
+        }        
+    }
+    &--spaceman-w-baloon {
+        &::before {
+            background-image: url(../img/spacemanwithbaloon.png);            
+            width: 26em;
+            height: 43em;
+            top: 6.4em;
+            left: 65.2%;
+        }
+    }
+    &--spaceman-w-baloon-float {
+        &::before {
+            background-image: url(../img/spacemanwithbaloon.png);            
+            width: 26em;
+            height: 43em;
+            position: static;
+            float: right;
+        }
+    }
+}
+.with-nebula {
+    position: relative;
+    &::before, &::after {
+        content: '';
+        display: block;
+        background: url(../img/nebula.png) no-repeat ;
+        width: 18em;
+        height: 37em;
+        position: absolute;
+        
+    }
+    &--left-bottom {
+        &::before {
+            left: 0;
+            bottom: 0;
+            background: url(../img/nebula_blue.png) no-repeat ;
+            background-position: right center;
+        }
+    }
+    &--right-top {
+        &::after {
+            right: 0;
+            top: -22em;
+            background-position: left center;
+        }
+    }    
+}

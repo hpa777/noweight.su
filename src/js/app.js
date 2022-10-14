@@ -7,4 +7,5 @@ require('slick-carousel');
 require('jquery-datetimepicker');
 import Inputmask from"inputmask";
 require('@fancyapps/fancybox');
+require('jquery-scrolla/dist/js/jquery.scrolla');
 require('./main.js');

@@ -1,5 +1,8 @@
 
 $(function () {
+    $('.do-animate').scrolla({
+        once: true
+    });
     let mainMenuOffset = $('.header').offset();
     $(window).on('scroll', function () {
         let st = $(this).scrollTop();
@@ -65,8 +68,9 @@ $(function () {
     // Tabs
     $('.tabs-menu__item').on('click', function () {
         let menu = $(this).parent();
-        menu.find('.tabs-menu__item').removeClass('active');
-        menu.siblings().removeClass('active');
+        menu.find('.tabs-menu__item.active').each(function() {
+           $('#' + $(this).removeClass('active').data('tab')).removeClass('active');           
+        });
         let tid = '#' + $(this).addClass('active').data('tab');
         let el = $(tid).addClass('active');
         if (el.length) {
@@ -136,6 +140,22 @@ $(function () {
     $('[data-btnid]').on('change', function () {
         checkAgreeCb(this);
     }).each((i, e) => checkAgreeCb(e));
+    $('[data-link]').on('change', function () {
+        let id = '#' + $(this).data('link');
+        let val = $(this).val();
+        $(id).prop('selectedIndex', 0);
+        $(id + " option").each(function(){
+            let el = $(this);
+            let p = el.data('par');
+            if (Array.isArray(p)) {
+                if (p.includes(val)) {
+                    el.removeAttr('hidden');
+                } else {                    
+                    el.attr('hidden', 'hidden');
+                }
+            }
+        });
+    });
     $('.ajax-form').on('submit', function (e) {
         let form = $(this);        
         e.preventDefault();
