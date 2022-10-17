@@ -133,3 +133,39 @@
         padding-left: 3.8em;
     }
 }
+.actions {
+    &__col {
+        width: 48.4%;
+    }
+}
+.action {
+    position: relative;
+    color: #fff;
+    border-radius: 20px;
+    padding: 4.4em 4em 2.3em 4.4em;    
+    background-repeat: no-repeat;
+    &:not(:last-child) {
+        margin-bottom: 2.7em;
+    }
+    &__title {
+        font-weight: 700;
+        font-size: em(40);
+        line-height: 1;
+        margin-bottom: 1em;
+    }
+    &__text {
+        font-family: 'Montserrat';
+        font-weight: 400;
+        font-size: em(20);
+        line-height: 1.4;
+        margin-bottom: 1.9em;
+    }
+    &--pos {
+        &-txt { background-position: 86% 23%; }
+        &-right { background-position: 100% 50%; }
+        &-right2 { background-position: 91% 50%; }
+        &-top { background-position: 95% 0; }
+        &-top2 { background-position: 115% -1%; }
+    }
+    
+}
