@@ -60,7 +60,7 @@
                                     <img src="img/youtube.svg" alt="">
                                 </a>
                             </div>
-                            <button class="header__button button button--hover-blue">
+                            <button class="header__button button button--hover-blue show-popup" data-pid="callback-form">
                                 <svg><use xlink:href="/images/sprite.svg#call-calling"></use></svg>
                                 <span>СВЯЗАТЬСЯ</span>
                             </button> 
@@ -162,7 +162,44 @@
             </div>                
         </footer>
     </div>
-    <include src="forms.html">        
-    </include>
+    <div class="form__popup" id="callback-form">
+        <div class="form form--callback animate__bounceIn" style="animation-duration:1s;animation-delay:0s;animation-iteration-count:1;visibility: visible;">
+            <form method="post" class="form__body ajax-form">
+                <input type="hidden" name="template" value="callback">
+                <div class="form__title">Заказать звонок</div>
+                <div class="form__row row-fl jcsb">
+                    <div class="form__group form__col">
+                        <input type="text" class="input-field phone-mask" name="phone" required
+                            placeholder="Ваш телефон*"
+                            data-inputmask="'mask':'+7(999)999-99-99'">
+                        <div class="form__group__mes"></div>
+                    </div>
+                    <div class="form__group form__col">
+                        <input type="text" class="input-field" placeholder="Ваше имя*" name="name" required>
+                        <div class="form__group__mes"></div>
+                    </div>
+                </div>    
+                <div class="form__row mb--11">
+                    <div class="form__group">
+                        <textarea class="input-field" placeholder="Комментарий" name="message"></textarea>
+                    </div>
+                </div>
+                <div class="form__row mb--11">
+                    <div class="form__group">
+                        <div class="checkbox row-fl aic">
+                            <input id="cb2" type="checkbox" checked
+                                data-btnid="sendbtn2">
+                            <label for="cb2"></label>
+                            <span>Согласие на обработку персональных данных</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form__row form__row--center">
+                    <button id="sendbtn2" type="submit" class="button button--hover-opacity">позвоните мне!</button>
+                </div>
+            </form>
+            <div class="form__close">&times;</div>            
+        </div>
+    </div>    
 </body>
 </html>

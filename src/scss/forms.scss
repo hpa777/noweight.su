@@ -7,6 +7,37 @@
     box-sizing: border-box;
     width: 56.2em;
     margin: auto;
+    &__popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(229, 229, 229, 0.7);
+        z-index: 999;
+        &.active {
+            display: flex;
+        }
+    }
+    &__body {
+        display: block;
+        position: relative;
+    }
+    &__close {
+        font-size: 3em;
+        background-color: $anzac_color;
+        position: absolute;
+        line-height: 0.6;
+        border-radius: 100%;
+        padding: 0.1em;
+        top: -0.7em;
+        right: -0.7em;
+        cursor: pointer;
+        &:hover {
+            opacity: .7;
+        }
+    }
     &__title {
         font-size: em(40);
         font-weight: 700;
@@ -66,6 +97,20 @@
             position: absolute;
             top: -11.1%;
             right: -2.3em
+        }
+    }
+
+    &--callback {
+        min-height: 29.4em;
+        &::before {
+            content: '';
+            display: block;
+            width: em(876);
+            height: em(510);
+            background: center/contain no-repeat url(../img/call_back_form_bg.png);
+            position: absolute;
+            top: 1em;
+            left: -2em;
         }
     }
 }

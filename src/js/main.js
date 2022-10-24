@@ -2,7 +2,7 @@
 $(function () {
     $('.do-animate').scrolla({
         once: true
-    });
+    });    
     let mainMenuOffset = $('.header').offset();
     $(window).on('scroll', function () {
         let st = $(this).scrollTop();
@@ -168,10 +168,19 @@ $(function () {
                 });
                 $.post('/send.json', data, (resp) => {
                     if (resp.status == "ok") {
-                        form.parent().html(resp.message);
+                        form.html(resp.message);
                     }
                 }, 'json');
             });
         });
     });
+    $(".show-popup").on('click', function(e) {
+        e.preventDefault();
+        $('#' + $(this).data("pid")).addClass("active")
+        .find(".form").addClass("animate__animated");
+    });
+    $(".form__close").on('click', function(e) {
+        e.preventDefault();
+        $(this).parents('.form__popup').removeClass("active");
+    });    
 });
