@@ -1,0 +1,96 @@
+.schedule {    
+    margin-top: 3.6em;
+    &__row {
+        &:not(:last-child) {
+            margin-bottom: 1em;
+        }  
+    }
+    &__date {
+        font-family: 'Montserrat';
+        font-weight: 700;
+        font-size: em(12);
+        writing-mode: tb-rl;
+        transform: rotate(-180deg);
+        text-transform: uppercase;
+        padding: 0em 2em 4.1em 1.3em;
+        text-align: right;
+        flex-shrink: 0;
+        span {
+            margin-bottom: 2.3em;
+        }
+    }
+    &__pagi {
+        justify-content: center;
+        margin-top: 3em;
+    }
+    &__button {
+        background: none;
+        border: none;
+        text-transform: uppercase;
+        font-style: normal;
+        font-weight: 400;
+        font-size: em(20);
+        margin: 0 1.5em;
+        cursor: pointer;
+        svg {
+            width: .9em;
+            height: .8em;
+            margin-right: .5em;
+        }
+        span + svg {
+            transform: rotate(180deg);
+            margin-right: 0;
+            margin-left: .5em;
+        }         
+    }
+    &__empty {
+        text-align: center;
+        font-size: 2.4em;
+        color: $tarawera_color;
+    }
+}
+.appointment {
+    font-family: 'Montserrat';
+    border: 1px solid #BABABA;
+    border-radius: 20px;
+    font-weight: 400;
+    box-sizing: border-box;
+    padding: 1.4em .9em 1.1em 1em;
+    width: 11.1em;
+    &:not(:last-child) {
+        margin-right: .7em;
+    }    
+    &__time {        
+        font-size: em(16);
+        margin-bottom: 0.5em;
+    }
+    &__duration {        
+        font-size: em(10);        
+        text-transform: uppercase;
+        color: #ADAEB1;
+        margin-bottom: 1em;
+    }
+    &__title {
+        font-weight: 600;
+        font-size: em(14);
+        line-height: 1.21;
+        margin-bottom: 0.6em;
+    }
+    &__employee {
+        font-size: em(12);
+        margin-bottom: 1.2em;     
+    }
+    &__room {        
+        font-size: em(12);
+        color: $persian_green_color;
+        margin-bottom: 1em;
+        svg {
+            width: .8em;
+            height: .9em;
+        }
+    }
+    &__capacity {
+        font-size: em(12);
+        color: #B7B8BA;
+    }
+}

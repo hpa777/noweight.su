@@ -1,6 +1,7 @@
 {
     "require": {
-        "phpoffice/phpspreadsheet": "^1.24"
+        "phpoffice/phpspreadsheet": "^1.24",
+        "guzzlehttp/guzzle": "^7.5"
     },
     "autoload": {
         "psr-4": {

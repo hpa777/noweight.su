@@ -5,6 +5,9 @@
     &--index {
         background-image: url(../img/bg_footer.png);
     }
+    &--index-min {
+        background-image: url(../img/bg_footer_index.png);
+    }
     &--min {
         background-image: url(../img/bg_footer_min.png);
     }
@@ -112,7 +115,7 @@
     background-image: url(../img/bg_rock.png);
     background-repeat: no-repeat;
     &--left {
-        background-position: -10% 126%;
+        background-position: -108px -371px;
     }
     &--right {
         background-position: 100% 79%;
