@@ -12,7 +12,7 @@ use PriceParser\Tools\DateTool;
 class ScheduleWidget
 {
 
-    public static function getSchedule($time)
+    public static function getSchedule()
     {
         $url = 'https://cloud.1c.fitness/app03/2367/hs/api/v3/classes/';
         $userName = 'sisad@bk.ru';
@@ -20,7 +20,7 @@ class ScheduleWidget
         $apikey = '2665909e-2211-11ed-409c-0050568369e4';
         $clubId = 'acdbdb12-1823-11ea-bbc0-0050568bac14';
 
-        $week = DateTool::getWeekRangeByDate($time);
+        $range = DateTool::getQueryTimeRange();        
         $client = new Client();
         $response = $client->get($url, [
             'auth' => [$userName, $passWord],
@@ -30,8 +30,8 @@ class ScheduleWidget
             ],
             'query' => [
                 'club_id' => $clubId,
-                'start_date' => $week['start'],
-                'end_date' => $week['end']
+                'start_date' => $range['start'],
+                'end_date' => $range['end']
             ]
         ]);
 
@@ -39,12 +39,31 @@ class ScheduleWidget
         if (!$result['result']) {
             return;
         }
-        $arr = [];
-        foreach ($result['data'] as $item) {
-            $key = date('Y-m-d', strtotime($item["start_date"]));
-            if (!array_key_exists($key, $arr)) {
-                $arr[$key] = [];
+        $schedule = [];
+        foreach($result['data'] as $item) {
+            $time = strtotime($item["start_date"]);
+            $week = date("W", $time);
+            if (!array_key_exists($week, $schedule)) {
+                $schedule[$week] = [];
             }
+            $hour = date("H", $time);
+            if (!array_key_exists($hour, $schedule[$week])) {
+                $schedule[$week][$hour] = [];
+                $year = date("Y", $time);
+                $head = "";
+                for($day = 1; $day <= 7; $day++) {
+                    $t = strtotime($year."W".$week.$day);
+                    if (!isset($schedule[$week]['head'])) {
+                        $head .= DateTool::getDayOfWeek($t);
+                    }                    
+                    $schedule[$week][$hour][date("d", $t)] = [];
+                }
+                if (!empty($head)) {
+                    $schedule[$week]['head'] = $head;
+                }
+            }
+            $day = date("d", $time);
+
             $card = [
                 'time' => DateTool::getTimeRange($item["start_date"], $item["end_date"]),
                 'duration' => $item["duration"],
@@ -61,48 +80,55 @@ class ScheduleWidget
             if (is_array($item["room"])) {
                 $card['room'] = $item["room"]["title"];
             }
-            $arr[$key][] = $card;
+            $schedule[$week][$hour][$day][] = $card;
         }
-        $cnt = "";
-        if (count($arr)) {
-            foreach ($arr as $date => $items) {
-                $row = "<div class=\"schedule__row row-fl\">\n";
-                $row .= DateTool::getDayOfWeek($date);
-                foreach ($items as $item) {
-                    $app = "<div class=\"appointment\">\n";
-                    $app .= "<div class=\"appointment__time\">{$item['time']}</div>\n";
-                    $app .= "<div class=\"appointment__duration\">{$item['duration']} мин.</div>\n";
-                    $app .= "<div class=\"appointment__title\">{$item['title']}</div>\n";
-                    $app .= "<div class=\"appointment__employee\">{$item['employee']}</div>\n";
-                    $app .= "<div class=\"appointment__room\">
-                            <svg class=\"blue\"><use xlink:href=\"/images/sprite.svg#point\"></use></svg>
-                            <span>{$item['room']}</span>
-                        </div>\n";
-                    $app .= "<div class=\"appointment__capacity\">{$item['capacity']}</div>\n";
-                    $app .= "</div>\n";
-                    $row .= $app;
-                }
-                $row .= "</div>\n";
-                $cnt .= $row;
+        foreach($schedule as &$week) {
+            ksort($week);
+        }
+        if (count($schedule)) {
+            $cnt = "<div class=\"schedule\">\n";
+            foreach ($schedule as $k1 => $week) {                                
+                $weekStr = "<div class=\"schedule__week\">\n";
+                                
+                foreach ($week as $hour => $row) {
+                    if ($hour == "head") {
+                        $weekStr .= "<div class=\"schedule__row row-fl jcsb\">\n{$row}</div>\n";
+                        continue;
+                    }
+                    $rowStr = "<div class=\"schedule__row row-fl jcsb\">
+                    <div class=\"schedule__time schedule__time--left\">{$hour}:00</div>
+                        <div class=\"schedule__time schedule__time--right\">{$hour}:00</div>\n";
+                    
+                    foreach ($row as $col) {
+                        $colStr = "<div class=\"schedule__col\">\n";   
+                        foreach ($col as $item) {                            
+                            $app = "<div class=\"appointment\">\n";
+                            $app .= "<div class=\"appointment__time\">{$item['time']}</div>\n";
+                            $app .= "<div class=\"appointment__duration\">{$item['duration']} мин.</div>\n";
+                            $app .= "<div class=\"appointment__title\">{$item['title']}</div>\n";
+                            $app .= "<div class=\"appointment__employee\">{$item['employee']}</div>\n";
+                            $app .= "<div class=\"appointment__room\">
+                                    <svg class=\"blue\"><use xlink:href=\"/images/sprite.svg#point\"></use></svg>
+                                    <span>{$item['room']}</span>
+                                </div>\n";
+                            $app .= "<div class=\"appointment__capacity\">{$item['capacity']}</div>\n";
+                            $app .= "</div>\n";
+                            $colStr .= $app;
+                        }                        
+                        $colStr .= "</div>\n";
+                        $rowStr .= $colStr;
+                    }                    
+                    $rowStr .= "</div>\n";
+                    $weekStr .= $rowStr;
+                }                
+                $weekStr .= "</div>\n";
+                $cnt .= $weekStr;                 
+                               
             }
+            $cnt .= "</div>\n";
         } else {
             $cnt = "<div class=\"schedule__empty\">На этой неделе расписания пока нет.</div>";
-        }
-        $prev = $time - 604800;
-        $next = $time + 604800;
-
-        $cnt .= "<div class=\"schedule__pagi row-fl\">\n";
-        $cnt .= "<button data-tm=\"{$prev}\" class=\"schedule__button row-fl aic schedule__button--left\">\n
-            <svg><use xlink:href=\"/images/sprite.svg#arrow\"></use></svg>\n
-            <span>предыдущая неделя</span>\n
-        </button>\n";
-        if (count($arr)) {
-            $cnt .= "<button data-tm=\"{$next}\" class=\"schedule__button row-fl aic schedule__button--right\">\n                        
-            <span>следующая неделя</span>\n
-            <svg><use xlink:href=\"/images/sprite.svg#arrow\"></use></svg>\n
-        </button>\n";
-        }
-        $cnt .= "</div>\n";
+        }                
         echo $cnt;
     }
 }

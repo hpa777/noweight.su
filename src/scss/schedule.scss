@@ -1,23 +1,40 @@
 .schedule {    
     margin-top: 3.6em;
-    &__row {
-        &:not(:last-child) {
-            margin-bottom: 1em;
-        }  
+    &__row {        
+        position: relative;
+        padding: 0 2em;
+        &:nth-child(odd):not(:first-child) {
+            background: #f8f8f8;
+        }
+    }        
+    &__col {
+        width: 11.1em;
+        flex-shrink: 0;
     }
     &__date {
         font-family: 'Montserrat';
         font-weight: 700;
-        font-size: em(12);
+        font-size: em(12);        
+        text-transform: uppercase;
+        text-align: center;        
+        span {
+            margin-right: 2.3em;
+        }
+    }
+    &__time {
         writing-mode: tb-rl;
         transform: rotate(-180deg);
-        text-transform: uppercase;
-        padding: 0em 2em 4.1em 1.3em;
-        text-align: right;
-        flex-shrink: 0;
-        span {
-            margin-bottom: 2.3em;
+        font-family: 'Montserrat';
+        font-weight: 700;
+        font-size: em(12);
+        position: absolute;
+        top: 2em;
+        &--left {
+            left: .5em;
         }
+        &--right {
+            right: .5em;
+        } 
     }
     &__pagi {
         justify-content: center;
@@ -55,11 +72,8 @@
     border-radius: 20px;
     font-weight: 400;
     box-sizing: border-box;
-    padding: 1.4em .9em 1.1em 1em;
-    width: 11.1em;
-    &:not(:last-child) {
-        margin-right: .7em;
-    }    
+    padding: 1.4em .9em 1.1em 1em;    
+    margin-top: .5em;       
     &__time {        
         font-size: em(16);
         margin-bottom: 0.5em;

@@ -20,6 +20,13 @@ $(function () {
         autoplay: true,
         autoplaySpeed: 3000
     });
+    $('.schedule').slick({
+        arrows: true,
+        dots: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: false,
+    });
     $('.slider, .team-slider').slick({
         slidesToShow: 4,
         slidesToScroll: 1,

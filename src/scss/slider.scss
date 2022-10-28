@@ -165,7 +165,8 @@
 }
 .video-slider,
 .news-slider,
-.menu-slider
+.menu-slider,
+.schedule
 {
     iframe {
         display: block;
@@ -182,6 +183,9 @@
         right: -7px;
         transform: rotate(180deg);
     }
+}
+.schedule .slick-arrow {
+    top: -1.2rem;
 }
 .index-banner {
     width: 100%;

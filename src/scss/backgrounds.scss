@@ -120,6 +120,10 @@
     &--right {
         background-position: 100% 79%;
     }
+    &--bright {
+        background-image: url(../img/bg_rock_bright.png);
+        background-repeat: no-repeat;
+    }
 }
 .nlo {
     background: center/contain no-repeat url(../img/nlo.png);

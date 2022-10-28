@@ -12,6 +12,16 @@ class DateTool {
         ];
     }
 
+    public static function getQueryTimeRange() {
+        $ts = time();
+        $start = date('w', $ts) == 1 ? $ts : strtotime('last monday', $ts);
+        $end = strtotime('+6 week', $start);
+        return [
+            'start' => date('Y-m-d 00:00:00', $start), 
+            'end' => date('Y-m-d 23:59:59', $end)
+        ];
+    }
+
     public static function getTimeRange($start, $end) {
         $s = date('H:i', strtotime($start));
         $e = date('H:i', strtotime($end));
@@ -35,8 +45,7 @@ class DateTool {
         '12' => 'Декабря'
     ];
 
-    public static function getDayOfWeek($date) {        
-        $time = strtotime($date);        
+    public static function getDayOfWeek($time) {                     
         $day = date('w', $time);
         $class = $day == 0 || $day == 6 ? "red" : "blue";
         $d = self::$days[$day];
