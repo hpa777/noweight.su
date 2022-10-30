@@ -61,6 +61,9 @@
             padding: 0.2em 0 0.9em 2.3em;
         }
     }
+    &__options {
+        font-family: 'Montserrat';  
+    }
     &__message {
         font-family: 'Montserrat';
         font-size: 1.2em;  
@@ -111,6 +114,25 @@
             position: absolute;
             top: 1em;
             left: -2em;
+        }
+    }
+
+    &--franchise {
+        width: 35em;
+        min-height: 42.8em;
+        background-color: $tarawera_color;
+        background-image: url(../img/franchise_bg.png);
+        background-repeat: no-repeat;
+        background-position: bottom left;
+        &::before {
+            content: '';
+            display: block;
+            width: em(698);
+            height: em(496);
+            background: center/contain no-repeat url(../img/franchise_bg1.png);
+            position: absolute;
+            bottom: 1em;
+            right: -3em;
         }
     }
 }
@@ -193,5 +215,8 @@ textarea.input-field {
     }
     span {
         margin-left: .9em;
+        a {
+            color: inherit;
+        }
     }
 }

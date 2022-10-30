@@ -163,9 +163,10 @@ $(function () {
             }
         });
     });
+    let options;
     $('.ajax-form').on('submit', function (e) {
         let form = $(this);        
-        e.preventDefault();
+        e.preventDefault();        
         grecaptcha.ready(function () {
             grecaptcha.execute(reCAPTCHA_site_key, { action: 'submit' }).then(function (token) {
                 let data = form.serializeArray();
@@ -173,6 +174,14 @@ $(function () {
                     name: 'token',
                     value: token
                 });
+                if (options != undefined) {            
+                    for (const [key, value] of Object.entries(options)) {
+                        data.push({
+                            name: "option_" + key,
+                            value: value
+                        });                              
+                    }                        
+                }    
                 $.post('/send.json', data, (resp) => {
                     if (resp.status == "ok") {
                         form.html(resp.message);
@@ -183,11 +192,20 @@ $(function () {
     });
     $(".show-popup").on('click', function(e) {
         e.preventDefault();
-        $('#' + $(this).data("pid")).addClass("active")
+        let btn = $(this);
+        let formContainer = $('#' + btn.data("pid"))
+        options = btn.data("options");
+        if (options != undefined) {            
+            for (const [key, value] of Object.entries(options)) {
+                formContainer.find(".option__" + key).text(value);                
+            }                        
+        }
+        formContainer.addClass("active")
         .find(".form").addClass("animate__animated");
     });
     $(".form__close").on('click', function(e) {
         e.preventDefault();
+        options = undefined;
         $(this).parents('.form__popup').removeClass("active");
     });    
 });

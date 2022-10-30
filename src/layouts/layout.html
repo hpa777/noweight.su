@@ -128,10 +128,10 @@
         <footer class="footer">
             <div class="footer__row container-fl row-fl">
                 <div class="footer__col">
-                    <a class="footer__logo" href="">
+                    <a class="footer__logo" href="/">
                         <img src="img/logo_foot.png" alt="">
                     </a>
-                    <a href="" class="button button--hover-blue">франшиза</a>
+                    <button class="button button--hover-blue show-popup" data-pid="franchise-form">франшиза</button>
                 </div>
                 <div class="footer__col">
                     <ul class="footer__menu">
@@ -162,6 +162,8 @@
             </div>                
         </footer>
     </div>
+
+
     <div class="form__popup" id="callback-form">
         <div class="form form--callback animate__bounceIn" style="animation-duration:1s;animation-delay:0s;animation-iteration-count:1;visibility: visible;">
             <form method="post" class="form__body ajax-form">
@@ -200,6 +202,55 @@
             </form>
             <div class="form__close">&times;</div>            
         </div>
-    </div>    
+    </div>
+    
+    <div class="form__popup" id="franchise-form">
+        <div class="form form--franchise animate__bounceIn" style="animation-duration:1s;animation-delay:0s;animation-iteration-count:1;visibility: visible;">
+            <form method="post" class="form__body ajax-form">
+                <input type="hidden" name="template" value="franchise">
+                <div class="form__title">франшиза</div>
+                <div class="form__row">
+                    <div class="form__group">
+                        <input type="text" class="input-field phone-mask" name="phone" required
+                            placeholder="Ваш телефон*"
+                            data-inputmask="'mask':'+7(999)999-99-99'">
+                        <div class="form__group__mes"></div>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__group">
+                        <input type="text" class="input-field" placeholder="Ваше имя*" name="name" required>
+                        <div class="form__group__mes"></div>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__group">
+                        <input type="text" class="input-field" placeholder="Ваше город*" name="city" required>
+                        <div class="form__group__mes"></div>
+                    </div>
+                </div>
+                <div class="form__row mb--11">
+                    <div class="form__group">
+                        <textarea class="input-field" placeholder="Комментарий" name="message"></textarea>
+                    </div>
+                </div>
+                <div class="form__row mb--11">
+                    <div class="form__group">
+                        <div class="checkbox row-fl aic">
+                            <input id="cb3" type="checkbox" checked
+                                data-btnid="sendbtn3">
+                            <label for="cb3"></label>
+                            <span>Согласие на обработку персональных данных</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form__row form__row--center">
+                    <button id="sendbtn3" type="submit" class="button button--hover-opacity">позвоните мне!</button>
+                </div>
+            </form>
+            <div class="form__close">&times;</div>            
+        </div>
+    </div>
+
 </body>
 </html>

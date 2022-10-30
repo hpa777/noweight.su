@@ -65,6 +65,7 @@ class ScheduleWidget
             $day = date("d", $time);
 
             $card = [
+                'date' => date('d.m.Y', strtotime($item["start_date"])),
                 'time' => DateTool::getTimeRange($item["start_date"], $item["end_date"]),
                 'duration' => $item["duration"],
                 'title' => $item["service"]["title"]
@@ -101,8 +102,9 @@ class ScheduleWidget
                     
                     foreach ($row as $col) {
                         $colStr = "<div class=\"schedule__col\">\n";   
-                        foreach ($col as $item) {                            
-                            $app = "<div class=\"appointment\">\n";
+                        foreach ($col as $item) {
+                            $data = json_encode($item);
+                            $app = "<div class=\"appointment show-popup\" data-options='{$data}' data-pid=\"schedule-form\">\n";
                             $app .= "<div class=\"appointment__time\">{$item['time']}</div>\n";
                             $app .= "<div class=\"appointment__duration\">{$item['duration']} мин.</div>\n";
                             $app .= "<div class=\"appointment__title\">{$item['title']}</div>\n";
