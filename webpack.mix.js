@@ -3,8 +3,17 @@ require('mix-html-builder');
 require('laravel-mix-clean');
 require('laravel-mix-svg-sprite');
 
+const { createProxyMiddleware } = require('http-proxy-middleware');
+const apiProxy = createProxyMiddleware('/api', { 
+	target: 'http://noweight.su',
+	changeOrigin: true,
+	logger: console
+});
+
 const buildPath = "./app"; 
 const srcPath = "./src";
+
+
 
 mix.setPublicPath(buildPath)
 	.html({
@@ -42,23 +51,32 @@ mix.setPublicPath(buildPath)
 	})
 	*/
 	.js(srcPath + '/js/app.js', 'js/app.js')
-	.extract([
-		'jquery',
-		'slick-carousel',
-		'@fancyapps/fancybox'
-	])
+	.vue()
 	.autoload({
 		jquery: ['$', 'window.jQuery', "jQuery", "window.$", "jquery", "window.jquery"]
 	})
+	.extract([
+		"jquery",
+		"vue",			
+		"inputmask",		
+		"jquery-datetimepicker",
+		"jquery-scrolla",    
+		"slick-carousel",
+		"@fancyapps/fancybox"	
+	])	
 	.clean()
 	.browserSync({
 		watch: true,
-		server: buildPath,
+		server: {
+			baseDir: buildPath,
+			middleware: [apiProxy]			
+		},
 		files: [
 			buildPath + "/css/!*.css",
 			buildPath + "/js/!*.js",
 			buildPath + "/!*.html"
-		]
+		],
+		
 	});
 if (!mix.inProduction()) {
 	mix.sourceMaps().webpackConfig({

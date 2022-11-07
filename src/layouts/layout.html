@@ -43,10 +43,10 @@
                                     <span>Личный кабинет</span>
                                 </a>
                             </div>
-                            <a href="" class="header__button button button--hover-blue">
+                            <button class="header__button button button--hover-blue show-popup" data-pid="calc-form">
                                 <svg><use xlink:href="/images/sprite.svg#calculator"></use></svg>
                                 <span>Расчитать Праздник</span>
-                            </a>
+                            </button>
                         </div>
                         <div class="header__col">
                             <div class="header-soci row-fl jcsb aic">                            
@@ -162,8 +162,7 @@
             </div>                
         </footer>
     </div>
-
-
+    
     <div class="form__popup" id="callback-form">
         <div class="form form--callback animate__bounceIn" style="animation-duration:1s;animation-delay:0s;animation-iteration-count:1;visibility: visible;">
             <form method="post" class="form__body ajax-form">
@@ -252,5 +251,12 @@
         </div>
     </div>
 
+    <div class="form__popup" id="calc-form">
+        <div class="form form--calc animate__bounceIn" style="animation-duration:1s;animation-delay:0s;animation-iteration-count:1;visibility: visible;">
+            <calc></calc>            
+            <div class="form__close">&times;</div>            
+        </div>
+    </div>
+    
 </body>
 </html>

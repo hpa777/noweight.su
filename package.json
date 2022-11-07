@@ -19,13 +19,16 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.2.4",
     "filename-regex": "^2.0.1",
+    "http-proxy-middleware": "^2.0.6",
     "laravel-mix": "^6.0.43",
     "laravel-mix-clean": "^0.1.0",
     "laravel-mix-svg-sprite": "^2.0.0",
     "mix-html-builder": "^0.8.0",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.50.1",
-    "sass-loader": "^12.1.0"
+    "sass-loader": "^12.1.0",
+    "vue-loader": "^15.9.8",
+    "vue-template-compiler": "^2.7.13"
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
@@ -33,7 +36,8 @@
     "inputmask": "^5.0.7",
     "jquery": "^3.6.0",
     "jquery-datetimepicker": "^2.5.21",
-    "jquery-scrolla": "^0.0.3",
-    "slick-carousel": "^1.8.1"
+    "jquery-scrolla": "^0.0.3",    
+    "slick-carousel": "^1.8.1",
+    "vue": "^2.6.12"
   }
 }

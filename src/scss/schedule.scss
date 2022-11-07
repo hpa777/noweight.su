@@ -38,7 +38,9 @@
     }
     &__pagi {
         justify-content: center;
-        margin-top: 3em;
+        margin-top: 1em;
+        min-height: 1.5em;
+        font-size: 1.5em;
     }
     &__button {
         background: none;
@@ -48,6 +50,10 @@
         font-weight: 400;
         font-size: em(20);
         margin: 0 1.5em;
+        color: #fff;
+        &:hover {
+            color: $anzac_color;
+        }
         cursor: pointer;
         svg {
             width: .9em;

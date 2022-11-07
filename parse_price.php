@@ -10,12 +10,22 @@ use \PriceParser\Parsers\SingleVisitParser;
 use \PriceParser\Parsers\ClassesWithTrainerParser;
 use PriceParser\Parsers\HolidaysParser;
 use PriceParser\Parsers\ProductsParser;
+use PriceParser\Parsers\SingleVisitCalcParser;
 use PriceParser\Parsers\SubscriptionsParser;
+use PriceParser\Tools\DateTool;
 
 $priceDir = MODX_BASE_PATH . 'upload/price/';
 $dataDir = MODX_BASE_PATH . 'price_data/';
 $inputFileType = IOFactory::READER_ODS;
 
+
+$dateStr = "05.11.2022";
+$d = date_create_from_format("d.m.Y", $dateStr);
+$year = $d->format("Y");
+$holidays = DateTool::getHolidaysDateArray($year);
+echo('<pre>');
+var_dump(in_array($dateStr, $holidays));
+echo('</pre>');
 
 $files = scandir(rtrim($priceDir, '/'));
 foreach ($files as $file) {
@@ -30,7 +40,7 @@ foreach ($files as $file) {
             $spreadsheet = $reader->load($filePath);            
             $sheet = $spreadsheet->getSheet($spreadsheet->getFirstSheetIndex());
             $data = $sheet->toArray();
-            $p1 = new SingleVisitParser($data, "svp");
+            $p1 = new SingleVisitCalcParser($data, "svp");
             $p2 = new ClassesWithTrainerParser($data, "cwt");
             $p3 = new HolidaysParser($data, "hdp");
             $p4 = new ProductsParser($data, "pps");
@@ -52,12 +62,13 @@ foreach ($files as $file) {
                 }
 
             }
-            echo $p5->getTabs();
+            //echo $p1->getTabs();
             // запись хэша
             //file_put_contents($hashPath, $fileHash);
             echo('<pre>');
-            var_dump($data);
+            var_dump($p1->getData());
             echo('</pre>');
+            echo(json_encode($p1->getData()));
         }
     }
 }

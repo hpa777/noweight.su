@@ -60,14 +60,31 @@
             height: 2.3em;
             padding: 0.2em 0 0.9em 2.3em;
         }
+        &__label {
+            padding: 0 0 0.5em 1.6em;
+            display: block;
+        }
     }
     &__options {
         font-family: 'Montserrat';  
     }
     &__message {
         font-family: 'Montserrat';
-        font-size: 1.2em;  
-    }    
+        font-size: 1.2em;
+        a {
+            color: $anzac_color;
+        }
+        &--center {
+            font-size: em(16);
+            text-align: center;
+        }  
+    }
+    &__price {
+        font-weight: 700;
+        font-size: em(30);
+        text-align: center;
+    }
+      
     &--spaceman {
         &::after {
             content: '';
@@ -133,6 +150,20 @@
             position: absolute;
             bottom: 1em;
             right: -3em;
+        }
+    }
+
+    &--calc {
+        background-color: $tarawera_color;
+        background-image: url(../img/calc_bg.png);
+        background-repeat: no-repeat;
+        background-position: -38px 116%;
+        textarea.input-field {
+            height: 7.6em;
+        }
+        .form__group__mes {
+            overflow: auto;
+            height: auto;
         }
     }
 }
@@ -219,4 +250,7 @@ textarea.input-field {
             color: inherit;
         }
     }
+}
+.master {
+    list-style: none;
 }

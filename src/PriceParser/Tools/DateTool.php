@@ -54,4 +54,20 @@ class DateTool {
         $m = self::$months[date('m', $time)];
         return "<div class=\"schedule__date\">{$dw}{$d} {$m}</div>\n";
     }
+
+    public static function getHolidaysDateArray(int $year) {
+        $arHolidays = [];
+        $calendar = simplexml_load_file("http://xmlcalendar.ru/data/ru/{$year}/calendar.xml");
+        $calendar = $calendar->days->day;
+        //все праздники за текущий год
+        foreach ($calendar as $day) {
+            $d = (array) $day->attributes()->d;
+            $d = $d[0];
+            $d = substr($d, 3, 2) . '.' . substr($d, 0, 2) . '.' . $year;
+            //не считая короткие дни
+            if ($day->attributes()->t == 1)
+                $arHolidays[] = $d;
+        }
+        return $arHolidays;
+    }
 }
