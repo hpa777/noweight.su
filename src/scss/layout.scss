@@ -258,6 +258,9 @@
             letter-spacing: 0.7px;
             color: $tarawera_color;
             flex-shrink: 0;
+            &--min {
+                display: none;
+            }
             &:hover {
                 color: $persian_green_color;
             }
@@ -313,6 +316,14 @@
             }
             &-phone {
                 font-size: 1.5em;
+                &__number {
+                    &--full {
+                        display: none;
+                    }
+                    &--min {
+                        display: block;
+                    }
+                }
             }
 
         }        

@@ -42,6 +42,11 @@
         font-size: em(40);
         font-weight: 700;
         margin-bottom: 0.8em;
+        &-row {
+            .form__title {
+                margin-bottom: 0;
+            }
+        }
     }
     &__row {
         &--center {
