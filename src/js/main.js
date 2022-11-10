@@ -67,11 +67,7 @@ $(function () {
             expandedItem.removeClass('active');
         }
     });
-    /*
-    $('.team-slider, .news-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-        $(this).find('.team-item__description, .news-slide--expand').removeClass('active');
-    });
-    */
+    
     $('.news-slide__cnt').on('transitionend', function () {
         if (!$(this).hasClass('active')) {
             $(this).removeClass('no-shadow');
@@ -79,7 +75,12 @@ $(function () {
         }
     });
 
-
+    $(".text-expand__button").on("click", function() {
+        const fl = $(this).toggleClass("active").hasClass("active");
+        $(this).parent().prev().toggleClass("active", fl);
+        $(this).find("span").text(fl ? "Свернуть" : "Читать всё");
+        setTabsHeigh();
+    });
 
     // Tabs
     $('.tabs-menu__item').on('click', function () {

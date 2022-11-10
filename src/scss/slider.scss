@@ -60,10 +60,17 @@
         filter: invert(10%) sepia(20%) saturate(7364%) hue-rotate(190deg) brightness(92%) contrast(95%);
     }
     .slick-prev {
-        left: -72px;
+        left: -4%;
+        @media (min-width: 1550px) {
+            left: -72px;
+        } 
+        
     }
     .slick-next {
-        right: -72px;
+        right: -4%;
+        @media (min-width: 1550px) {
+            right: -72px;
+        }        
         transform: rotate(180deg);
     }
 }
@@ -365,6 +372,9 @@
             background-color: #fff;
             .team-item__tile {
                 color: #fff;
+            }
+            .team-item__text--expand::after {
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #FFF 100%);
             }
         }
                         

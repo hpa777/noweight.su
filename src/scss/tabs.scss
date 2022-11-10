@@ -2,7 +2,9 @@
     position: relative;
     transition: min-height 0s ease 0s;
     &-menu {
-        width: 100%;
+        &:not(.container-fl) {
+            width: 100%;
+        }        
         list-style: none;
         font-family: 'Montserrat';            
         &__item {
@@ -25,7 +27,9 @@
         }
         &--wrap {
             flex-wrap: wrap;
-        }       
+            gap: 5px;
+        }
+             
     }
     &__container {
         position: relative;
@@ -95,7 +99,20 @@
                 margin-right: 0;
                 padding: 1.1em;
             }
-        }
+            &.tabs-menu__item--row {
+                border: 1px solid $anzac_color;
+                margin-right: 0;
+                border-radius: 0;
+                margin-right: -1px;
+                &:first-of-type {
+                    border-radius: 40px 0 0 40px;
+                }
+                &:last-of-type {
+                    border-radius: 0 40px 40px 0;
+                }
+                
+            }
+        }        
     }
     > .tabs__item  {
         top: 4.8em;

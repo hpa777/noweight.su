@@ -108,8 +108,10 @@
         letter-spacing: 0.7px;
     }        
     &__logo {
-        margin-right: 2.9em;
-        flex-shrink: 0;
+        
+            margin-right: 2.9em;
+            flex-shrink: 0;
+                
     }
     &__col {
         padding-top: .8em;
@@ -305,8 +307,7 @@
                     margin-right: 0.4em;
                 }
             }
-            &-soci {
-                position: absolute;
+            &-soci {                
                 position: absolute;
                 left: 34em;
                 top: .7em;

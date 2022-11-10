@@ -1,0 +1,33 @@
+@media (max-width: 1550px) {
+    .container-fl {
+        //box-sizing: border-box;
+        width: 92%;
+        //padding-left: 4%;
+        //padding-right: 4%;
+    }
+    .main-part:not(.header--fixed) {
+        .header {
+            &__top {
+                justify-content: space-between;
+            }
+            &__logo, &__col {
+                flex-shrink: 1;
+                margin: 0;
+            }
+            &__logo {
+                width: 11%;
+            }
+            &__col {
+                &:nth-child(5) {
+                    width: 23%;
+                }
+            }
+        }
+    }     
+} 
+@media (max-width: 1440px) {
+    html {
+        font-size: 1vw;
+    }
+    
+}

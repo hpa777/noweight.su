@@ -82,10 +82,14 @@ class ScheduleWidget
                 $card['room'] = $item["room"]["title"];
             }
             $schedule[$week][$hour][$day][] = $card;
+            if ($schedule[$week][$hour]['fulness'] < count($schedule[$week][$hour][$day])) {
+                $schedule[$week][$hour]['fulness'] = count($schedule[$week][$hour][$day]);
+            }
         }
+        
         foreach($schedule as &$week) {
             ksort($week);
-        }
+        }        
         if (count($schedule)) {
             $cnt = "<div class=\"schedule\">\n";
             foreach ($schedule as $k1 => $week) {                                
@@ -99,9 +103,13 @@ class ScheduleWidget
                     $rowStr = "<div class=\"schedule__row row-fl jcsb\">
                     <div class=\"schedule__time schedule__time--left\">{$hour}:00</div>
                         <div class=\"schedule__time schedule__time--right\">{$hour}:00</div>\n";
-                    
-                    foreach ($row as $col) {
-                        $colStr = "<div class=\"schedule__col\">\n";   
+                    $fulness = $row["fulness"];                    
+                    foreach ($row as $s => $col) {
+                        if ($s == "fulness") {
+                            continue;
+                        }
+                        $colStr = "<div class=\"schedule__col\">\n";
+                        $c = $fulness;   
                         foreach ($col as $item) {
                             $data = json_encode($item);
                             $app = "<div class=\"appointment show-popup\" data-options='{$data}' data-pid=\"schedule-form\">\n";
@@ -116,7 +124,12 @@ class ScheduleWidget
                             $app .= "<div class=\"appointment__capacity\">{$item['capacity']}</div>\n";
                             $app .= "</div>\n";
                             $colStr .= $app;
-                        }                        
+                            $c--;
+                        }
+                        while($c > 0) {
+                            $colStr .= "<div class=\"appointment\"></div>\n";
+                            $c--;
+                        }
                         $colStr .= "</div>\n";
                         $rowStr .= $colStr;
                     }                    

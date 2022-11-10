@@ -64,3 +64,48 @@ h2, .h2 {
         width: 50%;
     }
 }
+.text-expand {
+    position: relative;
+    max-height: 10em;    
+    overflow: hidden;    
+    &.active {
+        max-height: 1000em!important;
+        &::after {
+            display: none;
+        }
+    }
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 3em;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #FFF 100%);
+    }
+    &__row {
+        margin-top: 1.2em;
+    }
+    &__button {
+        border: none;
+        background: none;
+        font-size: 1.6em;
+        font-weight: 700;
+        color: $persian_green_color;
+        cursor: pointer;
+        &:hover {
+            color: $anzac_color;
+        }
+        svg {
+            width: 1em;
+            height: 1em;
+            margin-left: 0.5em;
+        }
+        &.active {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

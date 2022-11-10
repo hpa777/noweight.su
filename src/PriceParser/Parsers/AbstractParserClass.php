@@ -35,7 +35,7 @@ abstract class AbstractParserClass {
             foreach($this->menu as $mi => $tab) {
                 $class = $idx == 0 ? ' active' : '';
                 $id = $this->getKey() . '_' . (++$idx);                
-                $res.= "<li class=\"tabs-menu__item{$class}\" data-tab=\"{$id}\">{$mi}</li>\n";
+                $res.= "<li class=\"tabs-menu__item tabs-menu__item--row{$class}\" data-tab=\"{$id}\">{$mi}</li>\n";
                 $tabs.= "<div id=\"{$id}\" class=\"tabs__item{$class}\">\n{$tab}</div>\n";
             }
             $res.= "</ul>\n";
