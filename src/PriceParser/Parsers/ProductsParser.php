@@ -42,7 +42,7 @@ class ProductsParser extends AbstractParserClass {
                     break;
             }                       
         }    
-        $tab = "<div class=\"price\">\n{$tab}</div>";    
+        $tab = "<div class=\"price price--5\">\n{$tab}</div>";    
         $tab.= $this->makeFoot(++$rowId);
         return $tab;
     }

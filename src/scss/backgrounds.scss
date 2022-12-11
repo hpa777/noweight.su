@@ -1,9 +1,10 @@
+
 .wrapper {
     background-position: bottom center;
     background-size: contain;
     background-repeat: no-repeat;    
     &--index {
-        background-image: url(../img/bg_footer.png);
+        background-image: url(../img/bg_footer.png);        
     }
     &--index-min {
         background-image: url(../img/bg_footer_index.png);
@@ -34,7 +35,8 @@
         display: block;        
         width: 28em;
         height: 30em;
-        position: absolute;        
+        position: absolute;  
+        z-index: -1;      
     }
     &--gray {
         background-color: $wild_sand_color;

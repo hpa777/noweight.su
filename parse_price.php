@@ -65,10 +65,9 @@ foreach ($files as $file) {
             //echo $p1->getTabs();
             // запись хэша
             //file_put_contents($hashPath, $fileHash);
-            echo('<pre>');
-            var_dump($p1->getData());
-            echo('</pre>');
-            echo(json_encode($p1->getData()));
+            
+            echo $p3->getTabs();
+            
         }
     }
 }

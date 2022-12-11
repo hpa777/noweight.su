@@ -240,6 +240,7 @@
             height: 0.9em;
             margin-right: 0.7em;
             color: $tarawera_color;
+            flex-shrink: 0;
             &:hover {
                 color: $persian_green_color;
             }
@@ -363,6 +364,9 @@
         padding: 3.3em 0 2.55em 0;
         background-color: #fff;
         box-sizing: border-box;    
+    }
+    &__close {
+        display: none;
     }
     .has-submenu {
         &::before {

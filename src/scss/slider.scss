@@ -48,7 +48,7 @@
         }
     }
 }
-.slider, .coop-slider, .team-slider {
+.slider, .coop-slider, .team-slider, .visit-cond__cnt, .horizontal-scroll__nav-row {
     .slick-slide {
         margin: 0 10px;
     }
@@ -184,10 +184,10 @@
         filter: invert(100%) sepia(1%) saturate(2253%) hue-rotate(176deg) brightness(80%) contrast(92%);       
     }
     .slick-prev {
-        left: -7px;
+        left: 0;
     }
     .slick-next {
-        right: -7px;
+        right: 0;
         transform: rotate(180deg);
     }
 }
@@ -198,6 +198,7 @@
     width: 100%;
     height: 46em;
     display: block;
+    text-decoration: none;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -492,3 +493,27 @@
         margin: auto;
     }
 }
+.horizontal-scroll {
+    overflow-x: auto;
+    padding-bottom: 1em;
+    &__cnt {
+        position: relative;
+    }    
+    &__nav-row {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+    }
+    &.left + .horizontal-scroll__nav-row > .horizontal-scroll__left {
+        display: none;
+    }
+    &.right + .horizontal-scroll__nav-row > .horizontal-scroll__right {
+        display: none;
+    }
+    &--navtop {
+        .horizontal-scroll__nav-row {
+            top: 2.6em;
+        }
+    }
+ }

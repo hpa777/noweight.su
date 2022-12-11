@@ -2,13 +2,13 @@
     margin-top: 3.6em;
     &__row {        
         position: relative;
-        padding: 0 2em;
+        padding: 0 2%;
         &:nth-child(odd):not(:first-child) {
             background: #f8f8f8;
         }
     }        
     &__col {
-        width: 11.1em;
+        width: 13.8%;
         flex-shrink: 0;
     }
     &__date {

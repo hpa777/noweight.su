@@ -1,24 +1,29 @@
 <extends src="layout.html" locals='{"wrapperclass": "wrapper--index"}'>
     <block name="content">
 
+        <style>
+            .index-banner--1 {
+                background-image:url(../img/Slice_1.png);                
+            }
+            @media (max-width:576px) {
+                .index-banner--1 {
+                    background-image:url(../img/Slice_m_1.jpg);                
+                }
+            }
+        </style>
+       
         <div class="index-banner__slider">
-            <div class="index-banner" style="background-image:
-                url('/images/banner3_1.jpg');">
+
+            <a href="#" class="index-banner index-banner--1">
                 <div class="index-banner__text container-fl row-fl">
                     <div class="index-banner__title">Групповые и <br>Персональные
                         тренировки </div>
                     <div class="index-banner__descr">по Прыжкам на батуте,
                         Акробатике, <br>Паркуру Для детей и взрослых</div>
-                    <a href="" class="button button--hover-blue">записаться на
-                        занятие</a>
+                    <div class="button button--hover-blue">записаться на занятие</div>
                 </div>
-            </div>
-            <a class="index-banner">
-                <img class="fit-cover" src="img/banner1_1.jpg" alt="">
             </a>
-            <a class="index-banner">
-                <img class="fit-cover" src="img/banner3_1.jpg" alt="">
-            </a>
+
         </div>
 
 
@@ -136,12 +141,12 @@
             </div>
         </div>
         <script>
-            function tgLoad(el) {
-                el.previousSibling.addEventListener('load', (e)=> {
-                    if (e.currentTarget.offsetHeight > 700) {
+            function tgLoad(el) {                
+                el.previousSibling.addEventListener('load', (e)=> {                    
+                    if (e.currentTarget.offsetHeight > document.querySelector('.news-slider__cnt').offsetHeight) {
                         e.currentTarget.parentElement.classList.add('news-slide--expand');
                     }
-                });
+                });                
             }
         </script>
 
@@ -215,7 +220,7 @@
         </div>
 
 
-        <div class="bg-yellow">
+        <!--div class="bg-yellow">
             <div class="container-fl section">
                 <div class="h1 h1--white">ОТЗЫВЫ</div>
                 <div class="reviews-summary row-fl">
@@ -258,7 +263,7 @@
                         button--hover-opacity">телеграм канал</a>
                 </div>
             </div>
-        </div>
+        </div-->
 
 
         <div class="container-fl section section--pt">
@@ -267,28 +272,28 @@
                 <div>
                     <script async
                         src="https://telegram.org/js/telegram-widget.js?19"
-                        data-telegram-post="batuthouse/228" data-width="100%"></script>
+                        data-telegram-post="batuthouse/471" data-width="100%"></script>
                 </div>
                 <div>
-                    <iframe class="frame-slide"
-                        src="https://t.me/batuthouse/27?embed=1"></iframe>
+                    <script async
+                        src="https://telegram.org/js/telegram-widget.js?19"
+                        data-telegram-post="batuthouse/470" data-width="100%"></script>
                 </div>
                 <div>
-                    <iframe class="frame-slide"
-                        src="https://t.me/batuthouse/26?embed=1"></iframe>
+                    <script async
+                        src="https://telegram.org/js/telegram-widget.js?19"
+                        data-telegram-post="batuthouse/469" data-width="100%"></script>
                 </div>
                 <div>
-                    <iframe class="frame-slide"
-                        src="https://t.me/batuthouse/25?embed=1"></iframe>
+                    <script async
+                        src="https://telegram.org/js/telegram-widget.js?19"
+                        data-telegram-post="batuthouse/468" data-width="100%"></script>
                 </div>
                 <div>
-                    <iframe class="frame-slide"
-                        src="https://t.me/batuthouse/24?embed=1"></iframe>
-                </div>
-                <div>
-                    <iframe class="frame-slide"
-                        src="https://t.me/batuthouse/23?embed=1"></iframe>
-                </div>
+                    <script async
+                        src="https://telegram.org/js/telegram-widget.js?19"
+                        data-telegram-post="batuthouse/467" data-width="100%"></script>
+                </div>                
             </div>
             <div class="button-center">
                 <a href="" class="button button--blue button--hover-yellow">телеграм

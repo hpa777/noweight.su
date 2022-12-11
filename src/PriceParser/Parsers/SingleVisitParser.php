@@ -27,11 +27,13 @@ class SingleVisitParser extends AbstractParserClass {
         return self::KEY;
     }
 
-    protected function makeTabs($rowId) {        
-        $tab = $this->makeHeadRow($this->data[$rowId + 2]);
+    protected function makeTabs($rowId) {
+        $head = $this->makeHeadRow($this->data[$rowId + 2]);        
+        $tab = $head;
         $tab.= $this->makeRow($this->data[$rowId + 3]);
+        $tab.= $head;
         $tab.= $this->makeRow($this->data[$rowId + 4]);
-        $tab = "<div class=\"price\">\n{$tab}</div>";
+        $tab = "<div class=\"price price--1\">\n{$tab}</div>";
         $tab.= $this->makeFoot($rowId + 6);
         return $tab;
     }

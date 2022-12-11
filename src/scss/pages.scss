@@ -51,8 +51,8 @@
     &__text {
         font-family: 'Montserrat';
         font-weight: 400;
-        font-size: 24px;
-        line-height: 32px;
+        font-size: em(24);
+        line-height: 1.33;
     }    
 }
 
@@ -84,7 +84,7 @@
         font-weight: 700;
         font-size: em(20);
         line-height: 1.2;
-        padding: 1.4em 3em 1.1em 0;
+        padding: 1.4em 3.5em 1.1em 0;
         text-transform: uppercase;
         &::after {
             content: '+';
@@ -122,8 +122,7 @@
 
 .cafe {
     padding-top: 1.6em;
-    &__image {
-        flex-shrink: 0;
+    &__image {        
         flex-direction: column;
         .button {
             margin-top: 2.2em;
@@ -131,6 +130,7 @@
     }
     &__text {
         padding-left: 3.8em;
+        max-width: 50%;
     }
 }
 .actions {

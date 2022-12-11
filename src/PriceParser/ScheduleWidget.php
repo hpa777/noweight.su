@@ -22,18 +22,23 @@ class ScheduleWidget
 
         $range = DateTool::getQueryTimeRange();        
         $client = new Client();
-        $response = $client->get($url, [
-            'auth' => [$userName, $passWord],
-            'headers' => [
-                'Content-Type' => 'application/json',
-                'apikey' => $apikey
-            ],
-            'query' => [
-                'club_id' => $clubId,
-                'start_date' => $range['start'],
-                'end_date' => $range['end']
-            ]
-        ]);
+        try {
+            $response = $client->get($url, [
+                'auth' => [$userName, $passWord],
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'apikey' => $apikey
+                ],
+                'query' => [
+                    'club_id' => $clubId,
+                    'start_date' => $range['start'],
+                    'end_date' => $range['end']
+                ]
+            ]);
+        } catch (RequestException $e) {
+            return;
+        }
+        
 
         $result = json_decode($response->getBody()->getContents(), true);
         if (!$result['result']) {

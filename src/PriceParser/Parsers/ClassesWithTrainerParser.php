@@ -28,10 +28,12 @@ class ClassesWithTrainerParser extends AbstractParserClass {
     }    
 
     protected function makeTabs($rowId) {
-        $tab = $this->makeHeadRow($this->data[$rowId + 2]);       
-        $tab.= $this->makeRow($this->data[$rowId + 4]);        
+        $head = $this->makeHeadRow($this->data[$rowId + 2]); 
+        $tab = $head;      
+        $tab.= $this->makeRow($this->data[$rowId + 4]);
+        //$tab.= $head;        
         $tab.= $this->makeRow($this->data[$rowId + 5]);
-        $tab = "<div class=\"price\">\n{$tab}</div>";
+        $tab = "<div class=\"price price--2\">\n{$tab}</div>";
         $tab.= $this->makeFoot($rowId + 7);
         return $tab;
     }   

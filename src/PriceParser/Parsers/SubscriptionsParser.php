@@ -27,8 +27,9 @@ class SubscriptionsParser extends AbstractParserClass {
         return self::KEY;
     }
 
-    protected function makeTabs($rowId) {        
-        $tab = $this->makeHeadRow($this->data[$rowId + 2]);
+    protected function makeTabs($rowId) {
+        $head = $this->makeHeadRow($this->data[$rowId + 2]);        
+        $tab = "";
         $rows = [];
         for ($i = $rowId + 3; $i < count($this->data); $i = $i + 2) {            
             if (!self::getSingleValue($this->data[$i])) {
@@ -36,11 +37,24 @@ class SubscriptionsParser extends AbstractParserClass {
             }            
             $rows[] = $this->makeRow($i);
         }
-        for ($ri = 0; $ri < count($rows); $ri++) {
-            $class = $rows[$ri]["hasDescr"] && $ri + 1 < count($rows) && !$rows[$ri + 1]["hasDescr"] ? " price__col--rowspan" : "";
-            $tab.= str_replace("%class%", $class, $rows[$ri]["row"]);            
+        $flag = false;
+        for ($ri = 0; $ri < count($rows); $ri++) {            
+            if ($rows[$ri]["hasDescr"] && $ri + 1 < count($rows) && !$rows[$ri + 1]["hasDescr"]) {
+                $tab.= $head;
+                $tab.= str_replace("%class%", " price__col--rowspan", $rows[$ri]["row"]);
+                $flag = true;
+            } else {
+                $tab.= str_replace("%class%", "", $rows[$ri]["row"]);
+            }          
         }
-        $tab = "<div class=\"price\">\n{$tab}</div>";
+        if (!$flag) {
+            $tab = "";
+            for ($ri = 0; $ri < count($rows); $ri++) {            
+                $tab.= $head;
+                $tab.= str_replace("%class%", "", $rows[$ri]["row"]);                          
+            }
+        }
+        $tab = "<div class=\"price price--4\">\n{$tab}</div>";
         $tab.= $this->makeFoot(++$i);        
         return $tab;
     }
@@ -49,8 +63,8 @@ class SubscriptionsParser extends AbstractParserClass {
     private function makeHeadRow($row) {
         $this->excludeCols = [];
         $res = "<div class=\"price__row price__row--head\">\n<div class=\"price__col\"></div>";
-        for($i = 2; $i < count($row); $i++) {
-            if (empty($row[$i])) {                
+        for($i = 2; $i < count($row); $i++) {            
+            if (self::isLink($row[$i])) {                
                 break;
             } else {
                 $res.= "<div class=\"price__col\">{$row[$i]}</div>\n";
@@ -76,11 +90,10 @@ class SubscriptionsParser extends AbstractParserClass {
         $times = implode("<br>", $times);
         $res.= "<div class=\"price__col price__col--valign price__col--txt1\">{$days}</div>\n";
         $res.= "<div class=\"price__col price__col--valign price__col--txt2\">{$times}</div>\n";
-        $res.= "<div class=\"price__col price__col--valign price__col--pr\"><span>{$this->data[$rowId][4]} ₽</span></div>\n";
-        $res.= "<div class=\"price__col price__col--valign price__col--head\">";
+        $res.= "<div class=\"price__col price__col--valign price__col--pr\"><span>{$this->data[$rowId][4]} ₽</span>\n";
         if (!empty($this->data[$rowId][5]) && !self::isLink($this->data[$rowId][5])) {
             $res.= "<a href=\"{$this->data[$rowId][5]}\" class=\"button button--hover-blue price__buy price__buy--static\">Оплатить</a>";
-        }
+        }        
         $res.= "</div>\n</div>";
         return ["row" => $res, "hasDescr" => !empty($this->data[$rowId][0])];
     }

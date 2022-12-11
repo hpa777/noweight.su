@@ -41,7 +41,7 @@ class PriceWidget {
             }
         }
         $res = "<div class=\"tabs parent-tabs\">\n<ul class=\"tabs-menu row-fl jcsb\">\n";
-        $res.= $menu . "</ul>" . $tabs . "</div>";
+        $res.= $menu . "</ul>\n<div class=\"parent-tabs__cnt\">\n" . $tabs . "</div></div>";
         return $res;
     }
 }

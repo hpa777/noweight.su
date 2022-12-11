@@ -3,14 +3,14 @@
     display: block;
     list-style: none; 
     margin-top: 2em;
-    width: 87.6em;   
+    width: 87.5em;   
     height: 39.1em;
     background: 50% 50%/contain no-repeat url(../img/schema_bg.png);
     &__cnt {
         background-color: #EAEDF0;
         margin-top: 5.1em;
-        padding-top: 2em;
-    }
+        padding-top: 2em;        
+    }    
     svg {
         .bg { 
             fill: #BBC1C7;

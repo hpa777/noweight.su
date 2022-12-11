@@ -28,13 +28,15 @@ class HolidaysParser extends AbstractParserClass {
     }    
 
     protected function makeTabs($rowId) {
-        $tab = $this->makeHeadRow($this->data[++$rowId]);
-        while ($c = count(array_diff($this->data[++$rowId], ['']))) {            
-            if ($c == $this->count) {                
+        $head = $this->makeHeadRow($this->data[++$rowId]);
+        $tab = "";
+        while ($c = count(array_diff($this->data[++$rowId], ['']))) {                    
+            if ($c == $this->count) {
+                $tab.= $head;                
                 $tab.= $this->makeRow($rowId);
             }
         }
-        $tab = "<div class=\"price\">\n{$tab}</div>";    
+        $tab = "<div class=\"price price--3\">\n{$tab}</div>";    
         $tab.= $this->makeFoot(++$rowId);
         return $tab;
     }
