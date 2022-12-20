@@ -109,37 +109,17 @@
                 </div>
             </li>
             <li class="master__item" v-bind:class="{active: this.activeScreen === 3}">
-                <div class="form__price">ВАШ ЗАКАЗ:</div>
-                <div class="form__message mb--11">                    
-                    <p>Дата мероприятия: <span class="yellow">{{model.date}}</span></p>
-                    <p>Количество участников: <span class="yellow">{{model.numVisitors}}</span></p>
-                    <p>Зона посещения: <span class="yellow">{{model.place}}</span></p>
-                    <p v-if="model.price">Продолжительность посещения: <span class="yellow">{{model.price.time}}</span></p>
-                    <template v-if="model.animator && model.animator != 'none'">
-                        <p>Аниматор: <span class="yellow">{{model.animator.name}}</span></p>
-                        <p>Количество аниматоров: <span class="yellow">{{model.numAnimators}}</span></p>
-                        <p v-if="model.questTime">Продолжительность программы: <span class="yellow">{{model.questTime.txt}}</span></p>
-                    </template>
-                </div>
-                <div class="form__price">ориентировочная стоимость: <span class="yellow">{{model.sum}} руб.</span></div>
-                <div class="form__message form__message--center mb--11">Стоимость блюд в кафе Гравитация рассчитывается отдельно,<br>
-                    с меню можете ознакомиться <a href="/kafe.html">здесь</a></div>
-                <div class="form__row row-fl jcsb">
-                    <div class="form__col">
-                        <div class="form__group">
-                            <input type="text" class="input-field" placeholder="Ваше имя*" v-model="model.name" required>
-                            <div class="form__group__mes"></div>
-                        </div>
-                        <div class="form__group">
-                            <input type="text" class="input-field phone-mask" required v-model="model.phone"
-                                placeholder="Ваш телефон*" data-inputmask="'mask':'+7(999)999-99-99'">
-                            <div class="form__group__mes"></div>
-                        </div>
+                <div class="form__col">
+                    <div class="form__group">
+                        <label class="form__group__label">Ваше имя*</label>
+                        <input type="text" class="input-field" v-model="model.name" required>
+                        <div class="form__group__mes"></div>
                     </div>
-                    <div class="form__col">
-                        <div class="form__group">
-                            <textarea class="input-field" placeholder="Комментарий" v-model="model.message"></textarea>                        
-                        </div>
+                    <div class="form__group">
+                        <label class="form__group__label">Ваш телефон*</label>
+                        <input type="text" class="input-field phone-mask" required v-model="model.phone"
+                            data-inputmask="'mask':'+7(999)999-99-99'">
+                        <div class="form__group__mes"></div>
                     </div>
                 </div>
                 <div class="form__row mb--11">
@@ -152,7 +132,7 @@
                     </div>
                 </div>
                 <div class="form__row form__row--center">
-                    <button type="submit" id="sendbtn6" class="button button--hover-opacity">свяжитесь со мной</button>
+                    <button type="submit" id="sendbtn6" class="button button--hover-opacity">показать стоимость</button>
                 </div>
                 
                 <div class="schedule__pagi row-fl">
@@ -164,9 +144,25 @@
             </li>
         </ul>
     </form>
-    <div v-else>
-        <div class="form__title">Спасибо, сообщение отправлено!</div>
-        <div class="form__message">Hаш менеджер скоро Вам позвонит!</div>
+    <div v-else class="pb--7">
+        <div class="form__price">ВАШ ЗАКАЗ:</div>
+        <div class="form__message mb--11">                    
+            <p>Дата мероприятия: <span class="yellow">{{model.date}}</span></p>
+            <p>Количество участников: <span class="yellow">{{model.numVisitors}}</span></p>
+            <p>Зона посещения: <span class="yellow">{{model.place}}</span></p>
+            <p v-if="model.price">Продолжительность посещения: <span class="yellow">{{model.price.time}}</span></p>
+            <template v-if="model.animator && model.animator != 'none'">
+                <p>Аниматор: <span class="yellow">{{model.animator.name}}</span></p>
+                <p>Количество аниматоров: <span class="yellow">{{model.numAnimators}}</span></p>
+                <p v-if="model.questTime">Продолжительность программы: <span class="yellow">{{model.questTime.txt}}</span></p>
+            </template>
+        </div>
+        <div class="form__price">ориентировочная стоимость: <span class="yellow">{{model.sum}} руб.</span></div>
+        <div class="form__message form__message--center">Стоимость блюд в кафе Гравитация рассчитывается отдельно,<br>
+            с меню можете ознакомиться <a href="/kafe.html">здесь</a>
+        </div>
+        <!--div class="form__title">Спасибо, сообщение отправлено!</div>
+        <div class="form__message">Hаш менеджер скоро Вам позвонит!</div-->
     </div>
 </template>
 
@@ -203,7 +199,7 @@ export default {
     methods: {
         async setData() {
             const self = this;
-            $.get("/getprice.json", null, function(res){ // api/GetPrice.php
+            $.get("/getprice.json", null, function(res){ //    api/GetPrice.php
                 self.data = res;  
             }, 'json');                   
         },
@@ -257,6 +253,8 @@ export default {
         },
         submit() {
             const self = this;
+            //self.success = true;
+            
             grecaptcha.ready(function () {
                 grecaptcha.execute(reCAPTCHA_site_key, { action: 'submit' }).then(function (token) {
                     self.model.token = token;
@@ -264,7 +262,8 @@ export default {
                         self.success = resp.status == "ok";                        
                     }, "json");
                 });
-            });            
+            });
+                  
         }
     }     
 }

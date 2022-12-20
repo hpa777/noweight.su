@@ -220,6 +220,12 @@
     .wrapper {
         background: none;
     }
+    .button {
+        span {
+            position: relative;
+            top: 2px; 
+        }
+    }
     .main-menu {
         position: static;
         flex-direction: column;        
@@ -877,6 +883,13 @@
         bottom: 90px!important;
         right: -100px!important;
     }
+    .form__close {
+        line-height: .95;
+    }
+    .button-center {
+        margin-top: 0;
+    }
+
 }
 @media (max-width: 414px) {
     .header--fixed {

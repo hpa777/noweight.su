@@ -36,7 +36,8 @@
     "inputmask": "^5.0.7",
     "jquery": "^3.6.0",
     "jquery-datetimepicker": "^2.5.21",
-    "jquery-scrolla": "^0.0.3",    
+    "jquery-scrolla": "^0.0.3",
+    "moment": "^2.29.4",
     "slick-carousel": "^1.8.1",
     "vue": "^2.6.12"
   }
