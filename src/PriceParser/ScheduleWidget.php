@@ -64,7 +64,7 @@ class ScheduleWidget
                     $schedule[$week][$hour][date("d", $t)] = [];
                 }
                 if (!empty($head)) {
-                    $schedule[$week]['head'] = $head;
+                    $schedule[$week][0] = $head;
                 }
             }
             $day = date("d", $time);
@@ -94,14 +94,16 @@ class ScheduleWidget
         
         foreach($schedule as &$week) {
             ksort($week);
-        }        
+        }
+		unset($week);			
+
         if (count($schedule)) {
             $cnt = "<div class=\"schedule\">\n";
             foreach ($schedule as $k1 => $week) {                                
                 $weekStr = "<div class=\"schedule__week\">\n";
                                 
                 foreach ($week as $hour => $row) {
-                    if ($hour == "head") {
+                    if ($hour == 0) {
                         $weekStr .= "<div class=\"schedule__row row-fl jcsb\">\n{$row}</div>\n";
                         continue;
                     }

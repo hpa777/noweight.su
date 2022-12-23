@@ -177,3 +177,12 @@
         }
     }
 }
+.sitemap {
+    a {
+        color: #000;
+        text-decoration: none;
+        &:hover {
+            color: $persian_green_color;
+        }
+    }
+}

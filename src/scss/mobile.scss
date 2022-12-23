@@ -595,11 +595,13 @@
                 &--txt1, &--txt2 {
                     white-space: normal;
                     font-size: 1.5em;
+                    /*
                     span {
                         display: flex;
                         height: 6em;
                         align-items: center;
                     }
+                    */
                 }
                 &--pr {
                     padding-right: 1em;
@@ -649,6 +651,12 @@
         }
     }
     
+    .price-mod--57 .price__col--txt1 span, .price-mod--57 .price__col--txt2 span {
+        display: flex;
+        height: 6em;
+        align-items: center;
+    }
+
     .footer {
         text-align: center;
         padding-top: 45vw;
@@ -886,8 +894,8 @@
     .form__close {
         line-height: .95;
     }
-    .button-center {
-        margin-top: 0;
+    .price__buy {
+        padding: .3em 1em 0.2em 1em;
     }
 
 }
